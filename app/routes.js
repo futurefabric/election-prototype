@@ -1,23 +1,22 @@
 module.exports = {
   bind : function (app, assetPath) {
+
     app.get('/', function (req, res) {
-      res.render('index',
+      res.render('example-1',
                 {'assetPath' : assetPath});
     });
 
-    /* Example pages */
-
-    app.get('/examples/hello-world', function (req, res) {
-      res.render('examples/hello-world', {'message' : 'Hello world'});
+    app.get('/example-1', function (req, res) {
+      res.render('example-1', {'assetPath' : assetPath });
     });
-
-    app.get('/examples/inheritance', function (req, res) {
-      res.render('examples/inheritance/page-level', {'message' : 'Hello world'});
+    app.get('/example-2', function (req, res) {
+      res.render('example-2', {'assetPath' : assetPath });
     });
-
-    app.get('/examples/alpha', function (req, res) {
-      res.render('examples/alpha/alpha', {'assetPath' : assetPath });    
+    app.get('/example-3', function (req, res) {
+      res.render('example-3', {'assetPath' : assetPath });
     });
-
+    app.get('/example-4', function (req, res) {
+      res.render('example-4', {'assetPath' : assetPath });
+    });
   }
 };
