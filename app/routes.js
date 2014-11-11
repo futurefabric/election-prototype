@@ -9,6 +9,9 @@ module.exports = {
     app.get('/example-1', function (req, res) {
       res.render('example-1', {'assetPath' : assetPath });
     });
+    app.get('/example-1a', function (req, res) {
+      res.render('example-1a', {'assetPath' : assetPath });
+    });
     app.get('/example-2', function (req, res) {
       res.render('example-2', {'assetPath' : assetPath });
     });

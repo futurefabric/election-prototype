@@ -76,11 +76,22 @@
 	}
 }
 
-.example1-topical {
+.example1-window {
 	margin-left: 20.5em;
 	margin-top: 10px;
 	@include media(mobile) {
 	    margin-left: 0;
+	}
+}
+
+.single-window {
+	.see-all {
+	  margin-bottom: 3em;
+	}
+	@include media(mobile) {
+		.see-all {
+		  margin-bottom: 1em;
+		}
 	}
 }
 

@@ -5,7 +5,8 @@
 {{$content}}
 <script>
 (function() {
-  document.getElementById('example1').className = 'active';
+  document.getElementById('example1').className = '';
+  document.getElementById('example1a').className = 'active';
   document.getElementById('example2').className = '';
   document.getElementById('example3').className = '';
   document.getElementById('example4').className = '';
@@ -121,53 +122,80 @@
         </li>
       </ul></nav>
 
-   <h2 id="latest">Latest government announcements, publications, consultations and statistics</h2>
+   <div class="example1">
+   <h1 id="latest">Latest news</h1>
+   </div>
 
+  <div class="example1-window single-window">
 
-    <nav class="index-list" aria-labelledby="latest">
-
-      <ul><li>
-
-  <div class="grid-row">
-    <div class="column-half">
       <h2 class="bold-medium">Announcements</h2>
-      <p>
-        The Deputy Prime Minister, Nick Clegg MP, is the deputy head of government. He is the leader of the Liberal Democrats and was appointed Deputy Prime Minister when the coalition government was formed following the 2010 general election.
-      </p>
-    </div>
-    <div class="column-half">
+<section id="announcements" class="document-block documents-1">
+        <div class="content">
+          <ol class="document-list">
+      <li class="speech document-row" id="speech_413360">
+            <h2><a href="/government/speeches/nicky-morgan-speaks-at-launch-of-your-life-campaign">Nicky Morgan speaks at launch of Your Life campaign</a></h2>
+      </li>    <li class="news_article document-row" id="news_article_413003">
+            <h2><a href="/government/news/new-academically-rigorous-rs-gcse-backed-by-faith-groups">New academically rigorous RS GCSE backed by faith groups</a></h2>
+      </li>
+      </ol>
+      <p class="see-all">
+            <a href="/government/announcements?departments%5B%5D=department-for-education">See all announcements</a>
+          </p>
+        </div>
+      </section>
+
       <h2 class="bold-medium">Consultations</h2>
-      <p>
-        The Deputy Prime Minister, Nick Clegg MP, is the deputy head of government. He is the leader of the Liberal Democrats and was appointed Deputy Prime Minister when the coalition government was formed following the 2010 general election.
-      </p>
-    </div>
-  </div>
+<section id="consultations" class="document-block documents-2">
+        <div class="content">
+          <ol class="document-list">
+<li class="consultation document-row" id="consultation_412830">
+      <h2><a href="/government/consultations/gcse-and-a-level-reform-religious-studies">GCSE and A level reform: religious studies</a></h2>
+</li>    <li class="consultation document-row" id="consultation_409064">
+      <h2><a href="/government/consultations/changes-to-the-school-admissions-code">Changes to the school admissions code</a></h2>
+</li>
+</ol>
+<p class="see-all">
+            <a href="/government/publications?departments%5B%5D=department-for-education&amp;publication_filter_option=consultations">See all consultations</a>
+          </p>
+        </div>
+      </section>
 
-  <div class="grid-row">
-    <div class="column-half">
       <h2 class="bold-medium">Publications</h2>
-      <p>
-        The Deputy Prime Minister, Nick Clegg MP, is the deputy head of government. He is the leader of the Liberal Democrats and was appointed Deputy Prime Minister when the coalition government was formed following the 2010 general election.
-      </p>
-    </div>
-    <div class="column-half">
-      <h2 class="bold-medium">Statistics</h2>
-      <p>
-        The Deputy Prime Minister, Nick Clegg MP, is the deputy head of government. He is the leader of the Liberal Democrats and was appointed Deputy Prime Minister when the coalition government was formed following the 2010 general election.
-      </p>
-    </div>
-  </div>
+<section id="publications" class="document-block documents-3">
+        <div class="content">
+          <ol class="document-list">
+<li class="publication document-row" id="publication_414067">
+      <h2><a href="/government/publications/school-workforce-census-2014-guide-for-school-employed-staff">School workforce census 2014: guide for school-employed staff</a></h2>
+</li>    <li class="publication document-row" id="publication_413989">
+      <h2><a href="/government/publications/school-workforce-census-2014-xml-generators">School workforce census 2014: XML generators</a></h2>
+</li>
+</ol>
+<p class="see-all">
+            <a href="/government/publications?departments%5B%5D=department-for-education">See all publications</a>
+          </p>
+        </div>
+      </section>
 
-      </li></ul>
-    </nav>
+      <h2 class="bold-medium">Statistics</h2>
+<section id="statistics-publications" class="document-block documents-4">
+        <div class="content">
+          <ol class="document-list">
+<li class="publication document-row" id="publication_411826">
+      <h2><a href="/government/publications/education-and-training-statistics-for-the-uk-2014">Education and training statistics for the UK: 2014</a></h2>
+</li>    <li class="publication document-row" id="publication_409283">
+      <h2><a href="/government/publications/characteristics-of-children-in-need-2013-to-2014">Characteristics of children in need: 2013 to 2014</a></h2>
+</li>
+</ol>
+<p class="see-all">
+            <a href="/government/publications?departments%5B%5D=department-for-education&amp;publication_filter_option=statistics">See all statistics</a>
+          </p>
+        </div>
+      </section>
+
+
+      </div>
 
 </div>
-
-
-
-
-
-
 
 
 </main>
