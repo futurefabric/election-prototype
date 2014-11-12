@@ -1,0 +1,3163 @@
+/*====================================================================*/
+/* Planning Portal */
+/* Created on June 2009 */
+/* Global screen styles */
+/*====================================================================*/
+
+/*
+--- PLEASE NOTE ---
+
+Please put any Internet Explorer specific styles/hacks/fixes in 'ie.css'.
+
+Please keep tidy :)
+
+*/
+
+/* ------------------------------------------------------------------ */
+/* =Globals */
+/* ------------------------------------------------------------------ */
+
+/* Resets */
+
+* {margin: 0; padding: 0;}
+img {border: 0;}
+hr {display: none;}
+acronym, abbr {border-bottom: 1px dotted; cursor: help;}
+
+/* Clearfixes */
+
+.pp-clearfix:after,
+#pp-content:after,
+div.pp-column-wrap:after,
+#pp-nav-main:after,
+#pp-home-features:after,
+div.pp-home-features-content:after,
+#pp-content ul#pp-nav-home-features:after,
+div.pp-form-block:after,
+div.pp-funnels:after,
+ul.pp-application-tabs:after,
+div.pp-search-results:after,
+#pp-user-controls div.pp-wrap-3:after,
+div.pp-portlet-head-sub:after,
+div.pp-portlet-content ul.pp-styled-1 li:after {display: block; visibility: hidden; clear: both; height: 0; content: ".";}
+
+/* Links */
+
+html a:link,
+html a:visited {
+	font-weight: normal;
+	color: #069;
+	text-decoration: underline;
+	}
+
+a:link:hover,
+a:link:active,
+a:link:focus,
+a:visited:hover,
+a:visited:active,
+a:visited:focus {
+	color: #004365;
+	text-decoration: none;
+	}
+
+/* General styles */
+
+.pp-clear {clear: both;}
+.pp-small-text {font-size: 0.917em;}
+.pp-hide-1 {display: none;} /* For legends and any element you want to hide on the page - doesn't work with table cells and not good if you need screenreaders to read the content */
+.pp-hide-2 {position: absolute; left: -1000em;} /* To remove elements off-screen and remove their effect on other elements in the document - doesn't work with table cells */
+.pp-hide-3 {text-indent: -1000em;} /* To hide text in a table cell - still read by screen readers */
+.pp-hide-4 {visibility: hidden;} /* To hide an element and its contents but still hold its structure on the page */
+.pp-hide-5 {visibility: hidden; text-indent: -1000em;} /* To hide an element and its contents but still have its structure have a partial effect on its surrounding elements */
+
+.pp-float-right {float: right;}
+.pp-float-left {float: left;}
+
+.pp-centre,
+.pp-align-centre {text-align: center;}
+.pp-align-right {text-align: right;}
+.pp-align-left {text-align: left;}
+
+/* General images */
+/* 'pp-image-1' is used for general content images */
+/* 'pp-image-2' is used for portlet images */
+
+.pp-image-left {float: left;}
+.pp-image-right {float: right;}
+
+.pp-image-2 {margin-bottom: 10px;}
+
+.pp-image-1.pp-image-left {margin: 0 20px 20px 0;}
+.pp-image-1.pp-image-right {margin: 0 0 20px 20px;}
+.pp-image-2.pp-image-left {margin: 0 10px 5px 0;}
+.pp-image-2.pp-image-right {margin: 0 0 5px 10px;}
+
+.pp-image-1 img {
+	display: block;
+	border: 3px solid #dfdfdf;
+	padding: 2px;
+	background: #fff;
+	}
+
+.pp-image-2 img {
+	border: 2px solid #d2d2d2;
+	padding: 1px;
+	background: #fff;
+	}
+
+.pp-image-1 a img,
+.pp-image-2 a img {border-color: #79adc6;}
+.pp-image-1 a:hover img,
+.pp-image-1 a:focus img,
+.pp-image-2 a:hover img,
+.pp-image-2 a:focus img {border-color: #069;}
+
+.pp-image-1.pp-caption {background: #e9e9e9;}
+
+.pp-image-1 div.pp-wrap {
+	border-top: 2px solid #fff;
+	padding: 5px 10px;
+	font-style: normal;
+	font-size: 0.917em;
+	}
+
+.pp-image-1 div.pp-wrap p,
+.pp-image-1 div.pp-wrap ul,
+.pp-image-1 div.pp-wrap ol,
+.pp-image-1 div.pp-wrap blockquote {margin-bottom: 0.5em;}
+
+.pp-thumb-text {overflow: hidden;} /* Stops the text wrapping around the floated thumb image */
+
+/* General content notice */
+
+div.pp-notice {
+	margin: 0 0 1.5em 0;
+	border: 1px solid #bfd8ec;
+	padding: 10px 10px 5px 10px;
+	background: #f3f7fc;
+	}
+
+div.pp-notice p {margin: 0 0 1em 0;}
+
+/* Miscellaneous */
+
+ul.pp-inline-search li {min-height: 18px;}
+
+div.pp-flash-wrap {
+	margin: 0 0 1.5em 0;
+	padding: 10px;
+	background: #528fbe;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Structural */
+/* ------------------------------------------------------------------ */
+
+body {
+	background: #fff url(/graphics/structure/header-bg.jpg) no-repeat 50% 0;
+	text-align: left;
+	font: normal 75%/1.3 Verdana, Arial, Sans-Serif;
+	color: #333;
+	}
+
+#pp-header,
+#pp-home-customise,
+#pp-sitemap ul,
+#pp-footer div.pp-wrap {
+	margin: 0 auto;
+	width: 960px;
+	}
+
+#pp-content {
+	z-index: 2;
+	margin: 0 auto;
+	padding-bottom: 20px;
+	width: 975px; /* This is different to 960px above to accommodate the combined total of the left and right margins (15px) on the homepage portlets */
+	}
+
+/* Column */
+
+div.pp-column {
+	float: left;
+	width: 975px; /* Inline styles are used to override this width on the homepage */
+	}
+
+/* 2 UNEQUAL column layout - eg: General internal, Planning splash */
+
+div.pp-column-1 {float: left; width: 715px;}
+div.pp-column-2 {float: right; width: 225px;}
+
+div.pp-funnels-grid {width: 735px;} /* This is added to the .pp-column-1 DIV when the funnel boxes are being used. It allows to keep the same grid spacing without having to add 'pp-end' classes removing right margins */
+
+/* 2 EQUAL column layout - eg: Do you need permission? (lower part of the page) */
+
+div.pp-column-3 {float: left; width: 470px;}
+div.pp-column-4 {float: right; width: 470px;}
+
+/* IBM generated CSS */
+
+div.pp-column-2-responsibilities {float: left; width: 225px;}
+div.pp-column-2-see-also {float: right; width: 225px;}
+
+/* Internal DIV to compensate for extra 15px width on the #pp-content */
+
+#pp-internal {
+	margin: 0 auto;
+	width: 960px;
+	}
+
+/* Homepage portlet widths and essential margins */
+
+div.pp-portlet {
+	margin: 0 8px 15px 7px;
+	width: 310px;
+	color: #295064;
+	}
+
+div.pp-portlet-double {width: 635px;}
+
+/* Biography page gutters */
+
+div.pp-bio-link {
+	float: left;
+	margin: 0 30px 20px 0;
+	width: 128px;
+	}
+
+div.pp-bio-link p {margin: 5px 0 0 15px;}
+div.pp-bio-column {overflow: hidden;}
+
+/* Dropzones on the homepage */
+
+div.pp-column-drop-zone {
+	float: left;
+	width: 0;
+	}
+
+div.pp-column-drop-zone div {
+	top: 0;
+	bottom: 0;
+	margin-left: -6px;
+	width: 9px;
+	}
+
+div.pp-row-drop-zone {
+	position: absolute;
+	left: 7px;
+	right: 8px;
+	margin: -12px 8px 2px 7px;
+	height: 10px;
+	}
+
+div.pp-row-drop-zone div {height: 9px;}
+
+div.dndDropAware {
+	border: 1px dotted #dca704;
+	background: #fff17b;
+	}
+
+div.dndDropActive {
+	border: 1px solid #6ca904;
+	background: #91dc10;
+	}
+
+div.dndDragging {opacity: 40;}
+
+div.dndDragSelected {/* Not sure what this state was for */}
+
+div.dndMoveCursor {cursor: move;}
+div.dndDropCursor {cursor: pointer;}
+div.dndNoDropCursor {cursor: not-allowed;}
+
+/* ------------------------------------------------------------------ */
+/* =Header */
+/* ------------------------------------------------------------------ */
+
+#pp-header {
+	position: relative;
+	z-index: 3;
+	padding: 100px 0 0 0;
+	}
+
+/* Skip links */
+
+ul#pp-skip {list-style: none;}
+ul#pp-skip li.pp-skip {position: absolute;}
+
+ul#pp-skip li.pp-skip a {
+	position: absolute;
+	top: -10px;
+	left: -1000em;
+	padding: 5px 10px;
+	background: #397DB3 url(/graphics/structure/nav-main-anchor-bg.gif) repeat-x 0 100%;
+	color: #fff;
+	text-decoration: none;
+	white-space: nowrap;
+	outline: none;
+	}
+
+ul#pp-skip li.pp-skip a:focus {left: 270px;}
+
+ul#pp-skip li#pp-accessible-toggle {
+	position: absolute;
+	top: 60px;
+	right: 0;
+	font-size: 1.417em;
+	}
+
+/* H1 - Logo */
+
+#pp-header h1 {
+	position: absolute;
+	top: 10px;
+	left: 0;
+	z-index: 100;
+	width: 154px;
+	}
+
+#pp-header h1 a {
+	display: block;
+	height: 79px;
+	outline: none;
+	}
+
+#pp-header h1 img {display: block;}
+
+/* User controls */
+
+#pp-user-controls {
+	position: absolute;
+	top: 10px;
+	right: 0;
+	z-index: 10000;
+	max-width: 750px;
+	background: #217aa6 url(/graphics/structure/user-controls-bg-top-left.gif) no-repeat;
+	}
+
+#pp-user-controls div.pp-wrap-1 {background: url(/graphics/structure/user-controls-bg-top-right.gif) no-repeat 100% 0;}
+#pp-user-controls div.pp-wrap-2 {background: url(/graphics/structure/user-controls-bg-bottom-left.gif) no-repeat 0 100%;}
+
+#pp-user-controls div.pp-wrap-3 {
+	padding: 5px;
+	min-height: 20px;
+	background: url(/graphics/structure/user-controls-bg-bottom-right.gif) no-repeat 100% 100%;
+	}
+
+/* User navigation */
+
+ul#pp-nav-user {
+	float: left;
+	margin: 1px 0 0 0;
+	color: #fff;
+	}
+
+ul#pp-nav-user li {
+	display: inline;
+	margin: 0 10px;
+	white-space: nowrap;
+	}
+
+ul#pp-nav-user li span {
+	margin-left: 2px;
+	font-size: 0.917em;
+	}
+
+ul#pp-nav-user li a {color: #fff;}
+
+/* Language switcher */
+
+#pp-language-switcher {
+	float: left;
+	margin: 0 0 0 5px;
+	}
+
+#pp-language-switcher input.pp-button-switch {
+  float: left;
+  margin: 0 5px 0 0;
+	border: 0;
+	padding: 2px 3px;
+	background: transparent;
+	font-size: 0.917em;
+	color: #fff;
+	text-decoration: underline;
+	cursor: pointer;
+	}
+
+#pp-language-switcher input.pp-button-switch:hover,
+#pp-language-switcher input.pp-button-switch:focus {text-decoration: none;}
+
+#pp-language-switcher form {margin: 0;}
+
+#pp-language-switcher img.pp-flag {
+	float: left;
+	margin: 2px 4px 0 0;
+	border: 1px solid #89afc3;
+	padding: 1px;
+	}
+
+#pp-language-switcher select {
+	border-color: #89afc3;
+	padding: 1px;
+	color: #005681;
+	}
+
+#pp-language-switcher select option {padding-right: 7px;}
+
+#pp-language-switcher input.pp-button {
+	margin-left: 2px;
+	padding-bottom: 1px;
+	padding-top: 2px;
+	}
+
+/* Main navigation */
+
+#pp-nav-main {
+	clear: both;
+	margin: 0 0 15px 0;
+	background: #069 url(/graphics/structure/nav-main-bg-left.gif) no-repeat;
+	}
+
+#pp-nav-main div.pp-wrap {
+	padding: 10px 10px 0 10px;
+	background: url(/graphics/structure/nav-main-bg-right.gif) no-repeat 100% 0;
+	}
+
+#pp-nav-main ul {
+	float: left;
+	margin: 0;
+	max-width: 670px;
+	list-style: none;
+	}
+
+#pp-nav-main li {
+	float: left;
+	padding: 0 0 0 1px;
+	background: url(/graphics/structure/nav-main-divide.gif) no-repeat;
+	}
+
+#pp-nav-main li.pp-first {
+	padding-left: 0;
+	background: none;
+	}
+
+#pp-nav-main ul a {
+	float: left;
+	padding: 10px 19px;
+	min-height: 16px;
+	background: #397db3 url(/graphics/structure/nav-main-anchor-bg.gif) repeat-x 0 100%;
+	color: #fff;
+	text-decoration: none;
+	}
+
+#pp-nav-main ul li.pp-first a {background: #075076 url(/graphics/structure/nav-main-left-tab.gif) no-repeat;}
+
+#pp-nav-main ul a.pp-current,
+#pp-nav-main ul a:hover,
+#pp-nav-main ul a:focus {
+	background: #fff url(/graphics/structure/nav-main-tab-on.gif) repeat-x 0 0;
+	color: #015e8d;
+	}
+
+/*#pp-nav-main ul li a.pp-current {font-weight: bold;}*/
+
+#pp-nav-main ul li.pp-first a.pp-current,
+#pp-nav-main ul li.pp-first a:hover,
+#pp-nav-main ul li.pp-first a:focus {background: #fff url(/graphics/structure/nav-main-left-tab-on.gif) no-repeat;}
+
+/* Main Search */
+
+form#pp-search {
+	margin: 0;
+	padding: 6px 0;
+	min-height: 16px;
+	background: #0a6695 url(/graphics/structure/search-bg.gif) no-repeat 100% 0;
+	}
+
+form#pp-search fieldset {padding: 0 0 0 15px;}
+
+form#pp-search input.pp-text {
+	margin: 0 2px 0 0;
+	border-color: #ccc #ccc #fff;
+	width: 170px;
+	color: #069;
+	}
+
+form#pp-search input.pp-pre-pop {color: #888;}
+
+/* ------------------------------------------------------------------ */
+/* =Homepage customise feature */
+/* ------------------------------------------------------------------ */
+
+#pp-home-customise {
+	margin-bottom: 15px;
+	border-top: 6px solid #c3c9cc;
+	background: #e8e8e8 url(/graphics/structure/home-customise-bg.gif) no-repeat 0 100%;
+	}
+
+#pp-home-customise ol,
+#pp-home-customise ul {
+	overflow: hidden;
+	margin: 0;
+	list-style: none;
+	}
+
+/* Labels */
+
+#pp-home-customise ol {
+	border: solid #fff;
+	border-width: 1px 0;
+	padding: 8px 0 8px 10px;
+	background: #dedede;
+	}
+
+#pp-home-customise ol li {
+	float: left;
+	margin: 2px 5px;
+	width: 225px;
+	}
+
+#pp-home-customise ol li label {
+	display: block;
+	border: 1px solid #c9ccce;
+	padding: 8px 10px;
+	background: #efefef;
+	color: #069;
+	cursor: pointer;
+	}
+
+#pp-home-customise ol li label:hover,
+#pp-home-customise ol li label.pp-selected {
+	border-color: #6b757a;
+	background: #6b757a;
+	color: #fff;
+	}
+
+/* Buttons */
+
+#pp-home-customise ul {
+	border-top: 1px solid #c3c9cc;
+	padding: 8px 10px;
+	}
+
+#pp-home-customise ul li a {vertical-align: middle;}
+
+#pp-home-customise ul li.pp-customise-add {float: left;}
+#pp-home-customise ul li.pp-customise-add .pp-button {margin-right: 10px;}
+#pp-home-customise ul li.pp-customise-reset {float: right;}
+
+/* ------------------------------------------------------------------ */
+/* =Content */
+/* ------------------------------------------------------------------ */
+
+.pp-formatting p,
+.pp-formatting ul,
+.pp-formatting ol,
+.pp-formatting dl,
+.pp-formatting address,
+.pp-formatting blockquote {margin-bottom: 1.5em;}
+
+.pp-formatting li {margin: 2px 0; line-height: 1.2;}
+.pp-formatting dt {margin: 0.5em 0 0; font-weight: bold;}
+
+address {line-height: 1.2; font-style: normal;}
+ul {margin-left: 15px;}
+ul ul {margin: 0.5em 0;}
+ol {margin-left: 1.9em;}
+
+h2, h3,	h4, h5, h6 {
+	margin: 0 0 0.8em 0;
+	font: normal 1em/1.1 Verdana, Arial, Sans-Serif;
+	color: #000;
+	}
+
+h2 {font-size: 1.667em;}
+h3 {font-size: 1.333em;}
+h4 {font-size: 1.167em;}
+h5 {font-size: 1.083em;}
+
+/* ------------------------------------------------------------------ */
+/* =Site Links */
+/* ------------------------------------------------------------------ */
+
+#pp-sitemap {background: #f1f1f1 url(/graphics/structure/skyline.gif) repeat-x 50% 0;}
+
+#pp-sitemap ul {
+	overflow: hidden; /* Clearing floats */
+	padding: 85px 0 20px 0;
+	list-style: none;
+	}
+
+#pp-sitemap li {
+	float: left;
+	margin: 0 20px 0 0;
+	width: 225px;
+	}
+
+#pp-sitemap li.pp-last {margin-right: 0;}
+
+#pp-sitemap h2 {
+	margin-bottom: 0.6em;
+	padding: 0 0 8px 0;
+	background: url(/graphics/general/header-underline-1.gif) repeat-x 0 100%;
+	font-size: 1.25em;
+	}
+
+#pp-sitemap h2 a {
+	color: #000;
+	text-decoration: none;
+	}
+
+#pp-sitemap h2 a:hover,
+#pp-sitemap h2 a:focus {text-decoration: underline;}
+
+#pp-sitemap ul ul {
+	overflow: visible; /* Reset */
+	padding: 0;
+	width: auto;
+	font-size: 0.917em;
+	}
+
+#pp-sitemap ul ul li {
+	float: none;
+	margin: 3px 0;
+	width: auto;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Footer */
+/* ------------------------------------------------------------------ */
+
+#pp-footer {background: #fff url(/graphics/structure/footer-bg.jpg) repeat-x 50% 0;}
+
+#pp-footer div.pp-wrap {
+	overflow: hidden; /* Clearing floats */
+	padding: 70px 0 10px 0;
+	}
+
+#pp-footer ul {
+	list-style: none;
+	font-size: 0.917em;
+	}
+
+#pp-footer ul.pp-nav-footer {
+	float: right;
+	padding: 25px 0;
+	}
+
+#pp-footer li {
+	float: left;
+	vertical-align: middle;
+	}
+
+#pp-footer ul.pp-nav-footer li {margin-left: 20px;}
+#pp-footer ul.pp-logos li {margin-right: 40px;}
+
+/* ------------------------------------------------------------------ */
+/* =Tables */
+/* ------------------------------------------------------------------ */
+
+table.pp-default {
+	border-spacing: 0;
+	width: 100%;
+	font-size: 1em;
+	}
+
+/* Cells */
+
+table.pp-default th,
+table.pp-default td {
+	padding: 5px 7px;
+	text-align: left;
+	}
+
+table.pp-default td {font-size: 0.917em;}
+
+table.pp-default thead th {
+	background: #d5e7f7;
+	font-weight: bold;
+	}
+
+table.pp-default tbody th,
+table.pp-default tbody td {
+	border-top: 1px solid #fdfdfd;
+	border-bottom: 1px solid #e5e5e5;
+	background: #f5f5f5;
+	}
+
+table.pp-alternating-rows tbody tr:nth-child(odd) th,
+table.pp-alternating-rows tbody tr:nth-child(odd) td {border-bottom-color: #f5f5f5;}
+table.pp-alternating-rows tbody tr:nth-child(even) th,
+table.pp-alternating-rows tbody tr:nth-child(even) td {border-bottom-color: #fdfdfd; background: #fdfdfd;}
+/* These have to be separated because IE chokes on brackets in selector declarations */
+table.pp-alternating-rows tbody tr.pp-odd th,
+table.pp-alternating-rows tbody tr.pp-odd td {border-bottom-color: #f5f5f5;}
+table.pp-alternating-rows tbody tr.pp-even th,
+table.pp-alternating-rows tbody tr.pp-even td {border-bottom-color: #fdfdfd; background: #fdfdfd;}
+
+table.default tbody tr.pp-highlight th,
+table.default tbody tr.pp-highlight td {background: #fdffdc;}
+
+table.pp-alternating-rows-2 tbody tr:nth-child(odd) th,
+table.pp-alternating-rows-2 tbody tr:nth-child(odd) td {background: #F3F7FC;}
+table.pp-alternating-rows-2 tbody tr:nth-child(even) th,
+table.pp-alternating-rows-2 tbody tr:nth-child(even) td {background: #e9f2fc;}
+/* These have to be separated because IE chokes on brackets in selector declarations */
+table.pp-alternating-rows-2 tbody tr.pp-odd th,
+table.pp-alternating-rows-2 tbody tr.pp-odd td {background: #F3F7FC;}
+table.pp-alternating-rows-2 tbody tr.pp-even th,
+table.pp-alternating-rows-2 tbody tr.pp-even td {background: #e9f2fc;}
+
+/* Filters */
+
+span.pp-field-filter {
+	display: none;
+	position: relative;
+	}
+
+span.pp-field-filter span.pp-field-wrap {
+	display: block;
+	border: 1px solid;
+	border-color: #aaa #c9c9c9 #fff #c9c9c9;
+	padding: 2px 25px 1px 2px;
+	background: #fff;
+	min-height: 18px;
+	}
+
+span.pp-field-filter a.pp-reset-field,
+span.pp-field-filter a.pp-reset-field-list {
+	position: absolute;
+	top: 4px;
+	right: 3px;
+	width: 17px;
+	height: 16px;
+	background: url(/graphics/buttons/reset-field.gif) no-repeat;
+	text-indent: -1000em;
+	outline: none;
+	}
+
+span.pp-field-filter a.pp-reset-field:hover,
+span.pp-field-filter a.pp-reset-field:focus,
+span.pp-field-filter a.pp-reset-field-list:hover,
+span.pp-field-filter a.pp-reset-field-list:focus {background-position: 0 100%;}
+
+html span.pp-field-filter input.pp-text {
+	margin: 0;
+	border: 0;
+	padding: 1px 0;
+	width: 100%;
+	}
+
+/* -------------------------- */
+/* Common projects - Fixed header, scrolling tbody - CAREFULLY FINE TUNED */
+/* -------------------------- */
+
+div.pp-common-projects-wrap {
+	margin: 1em 0;
+	border-bottom: 1px solid #dae8f2;
+	}
+
+table.pp-common-projects {
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 0;
+	border-top: 1px solid #e1e1e1;
+	width: 100%;
+	background: #f3f7fc;
+	font-size: 1em;
+	}
+
+table.pp-common-projects caption {display: none;}
+
+table.pp-common-projects thead th {font-size: 1em;}
+div.pp-portlet table.pp-common-projects thead th {font-size: 1em;}
+
+table.pp-common-projects thead,
+table.pp-common-projects thead th {background: #ededed url(/graphics/general/table-header-bg-1.gif) repeat-x 0 100%;}
+
+table.pp-common-projects thead th {vertical-align: top;}
+table.pp-common-projects td {font-size: 0.917em;}
+table.pp-common-projects td.pp-col-case-study a {
+	padding: 2px 0 2px 20px;
+	background: url(/graphics/icons/two-documents.gif) no-repeat 0 50%;
+	}
+
+/* Fixing the table header styles */
+
+table.pp-common-projects thead,
+table.pp-common-projects tbody tr {display: block;}
+
+table.pp-common-projects tbody {
+	display: block;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 600px;
+	}
+
+div.pp-portlet table.pp-common-projects tbody {max-height: 200px;}
+
+/* Table cell widths (and properties that affect their width - borders & padding) */
+
+table.pp-common-projects th,
+table.pp-common-projects td {
+	border: 1px solid;
+	padding: 7px 5px;
+	}
+
+table.pp-common-projects thead th {
+	border-color: #e1e1e1 #cfcfcf #c3c3c3 #ececec;
+	border-top: 0;
+	color: #333;
+	}
+
+div.pp-portlet table.pp-common-projects th.pp-col-cp-name,
+div.pp-portlet table.pp-common-projects td.pp-col-cp-name {border-left: 0;}
+
+table.pp-common-projects thead th.pp-col-cp-name {border-left-color: #cfcfcf;}
+table.pp-common-projects thead th.pp-col-case-study {border-right: 0;}
+
+table.pp-common-projects td {border-color: #fff #dae8f2 #dee7ef #fbfdfe;}
+table.pp-common-projects td.pp-col-cp-name {border-left-color: #dae8f2;}
+
+table.pp-common-projects th.pp-col-cp-name,
+table.pp-common-projects td.pp-col-cp-name {width: 98px;}
+table.pp-common-projects th.pp-col-type,
+table.pp-common-projects td.pp-col-type {width: 120px;}
+table.pp-common-projects th.pp-col-mini-guide,
+table.pp-common-projects td.pp-col-mini-guide {width: 73px;}
+table.pp-common-projects th.pp-col-case-study,
+table.pp-common-projects td.pp-col-case-study {width: 86px;}
+
+/* Labels */
+
+table.pp-common-projects th label {
+	display: block;
+	margin-bottom: 2px;
+	padding: 2px;
+	color: #333;
+	}
+
+/* Form fields */
+
+table.pp-common-projects input.pp-text,
+table.pp-common-projects select {width: 100%;}
+
+/* -------------------------- */
+/* Your applications - Fixed header, scrolling tbody - CAREFULLY FINE TUNED */
+/* -------------------------- */
+
+div.pp-your-applications-wrap {
+	margin: 0 0 1em 0;
+	border-bottom: 1px solid #dae8f2;
+	}
+
+table.pp-your-applications {
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 0;
+	width: 100%;
+	background: #f3f7fc;
+	font-size: 0.917em;
+	}
+
+table.pp-your-applications caption span {
+	display: block;
+	position: relative;
+	border-bottom: 1px solid #fff;
+	padding: 10px 15px;
+	background: #069 url(/graphics/structure/caption-bg.gif) repeat-x 0 100%;
+	text-align: left;
+	font-size: 1.333em;
+	color: #fff;
+	}
+
+div.pp-portlet table.pp-your-applications caption span {font-size: 1.167em;}
+
+table.pp-your-applications thead th {
+	font-size: 1.083em;
+	vertical-align: top;
+	}
+
+table.pp-your-applications thead,
+table.pp-your-applications thead th {background: #ededed url(/graphics/general/table-header-bg-1.gif) repeat-x 0 100%;}
+
+table.pp-your-applications thead th.pp-selected {
+	background-color: #e1e1e1;
+	background-image: url(/graphics/general/table-header-bg-1-selected.gif);
+	cursor: pointer;
+	}
+
+table.pp-your-applications th a:link,
+table.pp-your-applications th a:visited {/* Hack to fix new HTML IBM added */
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+	}
+
+table.pp-your-applications td a,
+table.pp-your-applications td span.wrap {
+	display: block;
+	overflow: hidden; /* For FF2&3 that doesn't support break-word */
+	word-wrap: break-word;
+	}
+
+table.pp-your-applications tbody tr:hover td {background: #fffce6;}
+
+table.pp-your-applications td.pp-col-version,
+table.pp-your-applications td.pp-col-date,
+table.pp-your-applications td.pp-col-postcode,
+table.pp-your-applications td.pp-col-completion {text-align: center;}
+
+table.pp-your-applications td h4 {margin-bottom: 0.5em;}
+
+/* Fixing the table header styles */
+
+table.pp-your-applications thead,
+table.pp-your-applications tbody tr {display: block;}
+
+table.pp-your-applications tbody {
+	display: block;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 370px;
+	}
+
+div.pp-portlet table.pp-your-applications tbody {max-height: 200px;}
+
+/* Table cell widths (and properties that affect their width - borders & padding) */
+
+table.pp-your-applications th,
+table.pp-your-applications td {
+	border: 1px solid;
+	padding: 7px 5px;
+	}
+
+table.pp-your-applications thead th {
+	border-color: #e1e1e1 #cfcfcf #c3c3c3 #ececec;
+	border-top: 0;
+	}
+
+div.pp-portlet table.pp-your-applications th.pp-col-name,
+div.pp-portlet table.pp-your-applications td.pp-col-name {border-left: 0;}
+
+table.pp-your-applications thead th.pp-col-name {border-left-color: #cfcfcf;}
+table.pp-your-applications thead th.pp-col-last {border-right: 0;}
+
+table.pp-your-applications td {border-color: #fff #dae8f2 #dee7ef #fbfdfe;}
+table.pp-your-applications td.pp-col-name {border-left-color: #dae8f2;}
+
+table.pp-your-applications th.pp-col-name,
+table.pp-your-applications td.pp-col-name,
+table.pp-your-applications td a {width: 90px;}
+table.pp-your-applications th.pp-col-lpa,
+table.pp-your-applications td.pp-col-lpa,
+table.pp-your-applications td span.wrap {width: 92px;}
+table.pp-your-applications th.pp-col-version,
+table.pp-your-applications td.pp-col-version {width: 75px;}
+table.pp-your-applications th.pp-col-date,
+table.pp-your-applications td.pp-col-date {width: 75px;}
+table.pp-your-applications th.pp-col-postcode,
+table.pp-your-applications td.pp-col-postcode {width: 89px;}
+table.pp-your-applications th.pp-col-notes,
+table.pp-your-applications td.pp-col-notes {width: 125px;}
+table.pp-your-applications th.pp-col-agent,
+table.pp-your-applications td.pp-col-agent {width: 95px;}
+table.pp-your-applications th.pp-col-completion,
+table.pp-your-applications td.pp-col-completion {width: 106px;}
+table.pp-your-applications th.pp-col-action,
+table.pp-your-applications td.pp-col-action {width: auto;}
+
+/* Labels */
+
+table.pp-your-applications th label {
+	display: block;
+	margin-bottom: 2px;
+	padding: 2px;
+	text-decoration: none;
+	color: #333;
+	cursor: pointer;
+	}
+
+table.pp-your-applications th.pp-selected label,
+table.pp-your-applications th label:hover {background: url(/graphics/general/table-header-sort-arrows.gif) no-repeat 100% 5px;}
+
+table.pp-your-applications th label:hover {
+	background-color: #f2f2f2;
+	color: #111;
+	}
+
+/* Form fields */
+
+table.pp-your-applications th input.pp-text {
+	width: 95%;
+	font-size: 0.917em;
+	cursor: help;
+	}
+
+table.pp-your-applications td textarea {
+	overflow: auto;
+	width: 95%;
+	height: 40px;
+	}
+
+/* Action buttons */
+
+ul.pp-buttons {
+	margin: 0;
+	list-style: none;
+	}
+
+ul.pp-buttons li {
+	display: inline;
+	margin: 3px 2px;
+	vertical-align: middle;
+	}
+
+ul.pp-buttons a.pp-delete {
+	margin-top: 7px;
+	color: #900;
+	}
+
+/* Other */
+
+div.pp-your-applications-action {margin: 0 0 1.5em 0;}
+div.pp-your-applications-action span {
+	padding: 0 15px 0 5px;
+	color: #666;
+	}
+
+/* -------------------------- */
+/* News listing - Fixed header, scrolling tbody - CAREFULLY FINE TUNED */
+/* -------------------------- */
+
+div.pp-news-listing-wrap {
+	margin: 1em 0;
+	border-bottom: 1px solid #dae8f2;
+	}
+
+table.pp-news-listing {
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 0;
+	border-top: 1px solid #e1e1e1;
+	width: 960px;
+	background: #f3f7fc;
+	font-size: 1em;
+	}
+
+table.pp-news-listing caption {display: none;}
+
+table.pp-news-listing thead th label {font-size: 1.167em;}
+
+table.pp-news-listing thead,
+table.pp-news-listing thead th {background: #ededed url(/graphics/general/table-header-bg-1.gif) repeat-x 0 100%;}
+
+table.pp-news-listing thead th.pp-selected {
+	background-color: #e1e1e1;
+	background-image: url(/graphics/general/table-header-bg-1-selected.gif);
+	cursor: pointer;
+	}
+
+table.pp-news-listing td.pp-col-date {text-align: center;}
+table.pp-news-listing td h4 {margin-bottom: 0.5em;}
+
+/* Fixing the table header styles */
+
+table.pp-news-listing thead,
+table.pp-news-listing tbody tr {display: block;}
+
+table.pp-news-listing tbody {
+	display: block;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 400px;
+	}
+
+/* Table cell widths (and properties that affect their width - borders & padding) */
+
+table.pp-news-listing th,
+table.pp-news-listing td {
+	border: 1px solid;
+	padding: 7px 5px;
+	}
+
+table.pp-news-listing thead th {
+	border-color: #e1e1e1 #cfcfcf #c3c3c3 #ececec;
+	border-top: 0;
+	}
+
+table.pp-news-listing thead th.pp-col-title {border-left-color: #cfcfcf;}
+table.pp-news-listing thead th.pp-col-date {border-right: 0;}
+
+table.pp-news-listing td {border-color: #fff #dae8f2 #dee7ef #fbfdfe;}
+table.pp-news-listing td.pp-col-title {border-left-color: #dae8f2;}
+
+table.pp-news-listing th.pp-col-title,
+table.pp-news-listing td.pp-col-title {width: 694px;}
+table.pp-news-listing th.pp-col-date,
+table.pp-news-listing td.pp-col-date {width: 225px;}
+
+/* Labels */
+
+table.pp-news-listing th label {
+	display: block;
+	margin-bottom: 2px;
+	padding: 2px;
+	text-decoration: none;
+	color: #333;
+	cursor: pointer;
+	}
+
+table.pp-news-listing th.pp-selected label,
+table.pp-news-listing th label:hover {background: url(/graphics/general/table-header-sort-arrows.gif) no-repeat 100% 5px;}
+
+table.pp-news-listing th label:hover {
+	background-color: #f2f2f2;
+	color: #111;
+	}
+
+table.pp-news-listing th label.pp-hide-1 {display: none;}
+
+/* Form fields */
+
+table.pp-news-listing th input.pp-text {cursor: help;}
+
+table.pp-news-listing th select {
+	margin-top: 3px;
+	width: 100px;
+	}
+
+table.pp-news-listing th select.pp-small {width: 60px;}
+
+/* -------------------------- */
+/* Current policy - Fixed header, scrolling tbody - CAREFULLY FINE TUNED */
+/* -------------------------- */
+
+div.pp-current-policy-wrap {
+	margin: 0 0 1em 0;
+	border-bottom: 1px solid #dae8f2;
+	}
+
+table.pp-current-policy {
+	border-collapse: separate;
+	border-spacing: 0;
+	border: 0;
+	border-top: 1px solid #e1e1e1;
+	width: 100%;
+	background: #f3f7fc;
+	font-size: 1em;
+	}
+
+table.pp-current-policy caption {display: none;}
+
+table.pp-current-policy thead th label {font-size: 1.25em;}
+div.pp-portlet table.pp-current-policy thead th label {font-size: 1.083em;}
+
+table.pp-current-policy thead,
+table.pp-current-policy thead th {background: #ededed url(/graphics/general/table-header-bg-1.gif) repeat-x 0 100%;}
+
+table.pp-current-policy thead th.pp-selected {
+	background-color: #e1e1e1;
+	background-image: url(/graphics/general/table-header-bg-1-selected.gif);
+	cursor: pointer;
+	}
+
+table.pp-current-policy td {font-size: 0.917em;}
+
+/* Fixing the table header styles */
+
+table.pp-current-policy thead,
+table.pp-current-policy tbody tr {display: block;}
+
+table.pp-current-policy tbody {
+	display: block;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	max-height: 400px;
+	}
+
+div.pp-portlet table.pp-current-policy tbody {max-height: 200px;}
+
+/* Table cell widths (and properties that affect their width - borders & padding) */
+
+table.pp-current-policy th,
+table.pp-current-policy td {
+	border: 1px solid;
+	padding: 7px 5px;
+	}
+
+table.pp-current-policy thead th {
+	border-color: #e1e1e1 #cfcfcf #c3c3c3 #ececec;
+	border-top: 0;
+	}
+
+div.pp-portlet table.pp-current-policy th.pp-col-title,
+div.pp-portlet table.pp-current-policy td.pp-col-title {border-left: 0;}
+
+table.pp-current-policy thead th.pp-col-title {border-left-color: #cfcfcf;}
+table.pp-current-policy thead th.pp-col-type {border-right: 0;}
+
+table.pp-current-policy td {border-color: #fff #dae8f2 #dee7ef #fbfdfe;}
+table.pp-current-policy td.pp-col-title {border-left-color: #dae8f2;}
+
+table.pp-current-policy th.pp-col-title,
+table.pp-current-policy td.pp-col-title {width: 244px;}
+table.pp-current-policy th.pp-col-date,
+table.pp-current-policy td.pp-col-date {width: 100px;}
+table.pp-current-policy th.pp-col-description,
+table.pp-current-policy td.pp-col-description {width: 200px;}
+table.pp-current-policy th.pp-col-type,
+table.pp-current-policy td.pp-col-type {width: 106px;}
+
+div.pp-portlet table.pp-current-policy th.pp-col-title,
+div.pp-portlet table.pp-current-policy td.pp-col-title {width: 161px;}
+
+/* Labels */
+
+table.pp-current-policy th label {
+	display: block;
+	margin-bottom: 2px;
+	padding: 2px;
+	text-decoration: none;
+	color: #333;
+	cursor: pointer;
+	}
+
+table.pp-current-policy th.pp-selected label,
+table.pp-current-policy th label:hover {background: url(/graphics/general/table-header-sort-arrows.gif) no-repeat 100% 5px;}
+
+table.pp-current-policy th label:hover {
+	background-color: #f2f2f2;
+	color: #111;
+	}
+
+/* Form fields */
+
+table.pp-current-policy th input.pp-text {
+	width: 95%;
+	cursor: help;
+	}
+
+table.pp-current-policy th select {width: 100%;}
+
+/* ------------------------------------------------------------------ */
+/* =Forms */
+/* ------------------------------------------------------------------ */
+
+/* Form wrap */
+
+div.pp-compact {width: 500px;}
+
+/* Fieldsets */
+
+fieldset {border: 0;}
+
+fieldset.pp-styled {
+	margin: 0 0 15px 0;
+	border: 1px solid #dae5ec;
+	padding: 15px;
+	background: url(/graphics/structure/fieldset-bg.gif) repeat-x;
+	}
+
+fieldset fieldset.pp-styled {background-image: url(/graphics/structure/fieldset-fieldset-bg.gif);}
+
+fieldset fieldset.pp-styled {margin-top: 20px;}
+
+/* Legends */
+
+legend {
+	padding: 2px 1.8em 3px 5px;
+	background: #e2eef6 url(/graphics/structure/legend-arrow.gif) no-repeat 100% 50%;
+	color: #284f62;
+	font-weight: bold;
+	}
+
+fieldset fieldset legend {
+	padding-right: 5px;
+	background-image: none;
+	font-weight: normal;
+	}
+
+legend em {
+	font-size: 0.917em;
+	color: #222;
+	}
+
+/* Structure */
+
+div.pp-form-block {
+	position: relative;
+	margin: 0.7em 0;
+	}
+
+div.pp-form-block.pp-divide {
+	margin-top: 15px;
+	border-top: 1px solid #dae5ec;
+	padding-top: 15px;
+	}
+
+fieldset.pp-with-help div.pp-form-block {padding-right: 10px;}
+
+/* Labels */
+
+label,
+span.pp-label {line-height: 1.2;}
+
+span.pp-label {color: #295064;}
+
+ul.pp-inline-search label {color: #333;}
+
+span.pp-radio-check label {
+	display: block;
+	padding: 4px 0 0 0;
+	color: #000;
+	}
+
+span.pp-label {
+	display: block;
+	margin: 0 0 5px 0;
+	font-weight: normal;
+	}
+
+div.pp-form-block span.pp-label {
+	float: left;
+	margin: 0 10px 0 0;
+	padding: 4px 0 0 0;
+	width: 190px;
+	text-align: right;
+	}
+
+fieldset fieldset div.pp-form-block span.pp-label {width: 175px;} /* To align with inputs in the first fieldset */
+
+div.pp-portlet span.pp-label {width: 90px;}
+
+div.pp-portlet form.pp-forgotten-details span.pp-label {width: 100px;}
+
+span.pp-field {
+	display: block;
+	overflow: hidden;
+	}
+
+span.pp-field.pp-inline {display: inline;}
+
+div.pp-disabled label,
+div.pp-disabled span.pp-label,
+div.pp-disabled input.text,
+div.pp-disabled select,
+div.pp-disabled textarea {color: #aaa;}
+
+span.pp-label em {
+	font-style: normal;
+	font-size: 0.917em;
+	color: #666;
+	}
+
+/* Form elements */
+
+input,
+textarea,
+select {
+	vertical-align: middle;
+	font: 1em Verdana, Arial, Sans-Serif;
+	color: #111;
+	}
+
+input.pp-pre-pop {
+	font-style: italic;
+	color: #888;
+	}
+
+input.pp-radio-check {
+	margin-left: 2px;
+	width: 15px;
+	}
+
+input.pp-text,
+textarea,
+select {
+	border: 1px solid;
+	border-color: #aaa #c9c9c9 #e2e2e2 #c9c9c9;
+	padding: 3px 0 3px 2px;
+	/*background: #fff url(/graphics/structure/text-input-shadow-top.gif) repeat-x;*/
+	background: #fff;
+	}
+
+div.pp-portlet input.pp-text,
+div.pp-portlet textarea,
+div.pp-portlet select {border-color: #aaa #c9c9c9 #efefef #c9c9c9;}
+
+span.pp-field input.pp-text,
+span.pp-field textarea {width: 97%;}
+span.pp-field select {width: 99%;}
+
+ul.pp-inline-search input.pp-text,
+fieldset.pp-full input.pp-medium,
+fieldset.pp-full select.pp-medium {width: 225px;}
+
+span.pp-double-text input.pp-text {width: 110px;}
+
+span.pp-field input.pp-small {width: 100px;}
+
+select {padding: 2px 2px 2px 0;}
+option {padding: 0 6px 0 2px;}
+
+/* Form errors - displayed at the top of forms */
+
+div.pp-errors {
+	margin: 0 0 1.5em 0;
+	border: 1px solid #ede6c5;
+	padding: 10px;
+	background: #fffcee url(/graphics/structure/form-errors-bg.gif) repeat-x 0 100%;
+	font-size: 0.917em;
+	}
+
+div.pp-errors p {margin: 0 0 0.5em 0;}
+
+html div.pp-errors h3 {
+	margin: 0 0 0.5em 0;
+	font-weight: normal;
+	color: #901007;
+	}
+
+html div.pp-errors p {color: #333;}
+
+div.pp-errors dl {margin-bottom: 0;}
+
+div.pp-errors dl a,
+div.pp-error span.pp-label {color: #901007;}
+
+div.pp-errors dt {
+	margin: 1em 0 0 0;
+	font-weight: bold;
+	}
+
+div.pp-errors dd {margin-left: 10px;}
+
+/* Inline help and errors */
+
+span.pp-form-info {
+	position: absolute;
+	left: 105%;
+	top: 0;
+	width: 200px;
+	}
+
+span.pp-form-info span span.pp-error-popup:first-child span.pp-arrow,
+span.pp-form-info span.pp-help-popup:first-child span.pp-arrow {display: block;}
+
+span.pp-help-icon {
+	position: absolute;
+	right: -9px;
+	top: 5px;
+	width: 16px;
+	height: 16px;
+	background: url(/graphics/icons/form-help.png) no-repeat;
+	cursor: help;
+	}
+
+/* Inline errors styles and error popup */
+
+span.pp-error,
+label.pp-error {color: #901007;}
+
+em.pp-error-icon {
+	display: -moz-inline-stack; /* Because Firefox 2 doesn't understand 'inline-block' */
+	display: inline-block; /* For modern browsers */
+	width: 16px;
+	height: 16px;
+	background: url(/graphics/icons/form-error.png) no-repeat;
+	vertical-align: top;
+	}
+
+em.pp-error-icon span {
+	position: absolute;
+	left: -1000em;
+	}
+
+input.pp-error,
+select.pp-error,
+textarea.pp-error {
+	background-color: #fff7d0;
+	color: #901007;
+	}
+
+span.pp-radio-check input.pp-error {background-color: transparent;}
+
+span.pp-error-popup {
+	display: block;
+	position: relative;
+	border: 4px solid #c12424;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	padding: 8px;
+	background: #a10909;
+	font-weight: normal;
+	font-size: 0.917em;
+	color: #f0ecd8;
+	-moz-box-shadow: 1px 1px 1px #aaa;
+	-webkit-box-shadow: 1px 1px 1px #aaa;
+	box-shadow: 1px 1px 1px #aaa;
+	}
+
+span.pp-error-popup span.pp-arrow {
+	display: none;
+	position: absolute;
+	left: -10px;
+	top: 3px;
+	width: 6px;
+	padding: 11px;
+	background: url(/graphics/structure/popup-arrow-error.gif) no-repeat;
+	}
+
+em.inline-button-error {
+	display: inline-block;
+	margin: 0 0 0 5px;
+	padding: 0 0 0 19px;
+	background: url(/graphics/icons/form-error.png) no-repeat 0 70%;
+	vertical-align: middle;
+	font-size: 1.083em;
+	line-height: 1.5;
+	color: #901007;
+	}
+
+/* Help popup */
+
+span.pp-help-popup {
+	display: block;
+	position: relative;
+	border: 4px solid #99cc99;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	padding: 8px;
+	background: #e7f6e7;
+	font-weight: normal;
+	font-size: 0.917em;
+	color: #284928;
+	-moz-box-shadow: 1px 1px 1px #aaa;
+	-webkit-box-shadow: 1px 1px 1px #aaa;
+	box-shadow: 1px 1px 1px #aaa;
+	}
+
+span.pp-help-popup span.pp-arrow {
+	display: none;
+	position: absolute;
+	left: -10px;
+	top: 3px;
+	width: 6px;
+	padding: 11px;
+	background: url(/graphics/structure/popup-arrow-help.gif) no-repeat;
+	}
+
+/* Other */
+
+a#pp-manual-address {
+	display: block;
+	margin: 5px 0;
+	font-size: 0.917em;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Buttons */
+/* ------------------------------------------------------------------ */
+
+a.pp-button:link,
+a.pp-button:visited,
+input.pp-button {
+	display: inline-block;
+	border: 1px solid;
+	border-color: #3d7258 #3d7258 #155a39 #3d7258;
+	padding: 3px 5px;
+	background: #2e694d url(/graphics/buttons/button-bg.gif) repeat-x;
+	font-weight: bold;
+	font-size: 0.917em;
+	line-height: 1.3;
+	color: #fff;
+	text-decoration: none;
+	cursor: pointer;
+	outline: none;
+	}
+
+input.pp-button {padding: 3px 3px 2px 3px;}
+
+a.pp-button:hover,
+a.pp-button:focus,
+input.pp-button:hover,
+input.pp-button:focus {
+	background: #155a39;
+	color: #fff;
+	}
+
+input.pp-button.pp-button-alt {
+	border-color: #e0e0e0;
+	background: #fbfbfb url(/graphics/buttons/button-bg-alt.gif) repeat-x;
+	color: #069;
+	}
+
+input.pp-button.pp-button-alt:hover,
+input.pp-button.pp-button-alt:focus {background: #fff;}
+
+input.pp-button-right {float: right;}
+
+div.pp-form-buttons {
+	margin: 0 0 2em 0;
+	padding-left: 215px;
+	}
+
+div.pp-portlet div.pp-form-buttons {
+	margin-bottom: 0;
+	padding-left: 100px;
+	}
+
+div.pp-portlet form.pp-forgotten-details div.pp-form-buttons {padding-left: 0; text-align: right;}
+
+div.pp-portlet div.pp-form-buttons p,
+div.pp-form-buttons input.pp-button {margin-bottom: 5px;}
+
+input.pp-button-link {
+	display: inline-block;
+	border: 0;
+	padding: 0;
+	background: 0;
+	vertical-align: baseline;
+	font-weight: normal;
+	color: #069;
+	text-decoration: underline;
+	cursor: pointer;
+	}
+
+input.pp-button-link:hover,
+input.pp-button-link:focus {
+	color: #004365;
+	text-decoration: none;
+	}
+
+a.pp-secondary-action {margin: 0 5px;}
+
+/* ------------------------------------------------------------------ */
+/* =Lists */
+/* ------------------------------------------------------------------ */
+
+ul.pp-unstyled,
+.pp-formatting ul.pp-unstyled,
+div.pp-form-buttons ul.pp-unstyled {
+	margin-left: 0;
+	list-style: none;
+	}
+
+/* Hierarchy links */
+
+html ol#pp-hierarchy {
+	overflow: hidden;
+	margin: 0.5em 0 1em 0;
+	border-bottom: 1px solid #f1f1f1;
+	padding: 0 0 10px 0;
+	list-style: none;
+	font-size: 0.917em;
+	}
+
+ol#pp-hierarchy li {
+	float: left;
+	margin: 0 5px 0 0;
+	font-weight: bold;
+	}
+
+ol#pp-hierarchy a {
+	padding: 0 11px 0 0;
+	background: url(/graphics/structure/hierarchy-arrow.gif) no-repeat 100% 70%;
+	font-weight: normal;
+	}
+
+/* Application tabs */
+
+ul.pp-application-tabs {
+	margin: 1.5em 0 0 0;
+	list-style: none;
+	}
+
+div.pp-portlet ul.pp-application-tabs {
+	margin-bottom: 0;
+	margin-left: 6px;
+	font-size: 0.917em;
+	}
+
+ul.pp-application-tabs li {
+	float: left;
+	position: relative;
+	z-index: 1;
+	margin: 0 2px 0 0;
+	}
+
+ul.pp-application-tabs a {
+	float: left;
+	background: #fff url(/graphics/structure/tab-left-1.gif) no-repeat;
+	text-decoration: none;
+	}
+
+div.pp-portlet ul.pp-application-tabs a {background-image: url(/graphics/structure/tab-left-2.gif);}
+
+ul.pp-application-tabs a em {
+	display: block;
+	padding: 0.7em 0.8em;
+	background: url(/graphics/structure/tab-right-1.gif) no-repeat 100% 0;
+	font-style: normal;
+	cursor: pointer;
+	}
+
+div.pp-portlet ul.pp-application-tabs a em {
+	padding: 0.5em 0.6em;
+	background-image: url(/graphics/structure/tab-right-2.gif);
+	}
+
+ul.pp-application-tabs a:hover,
+ul.pp-application-tabs a:focus,
+ul.pp-application-tabs a.pp-current {background-color: #eff4fb;}
+
+ul.pp-application-tabs a.pp-current {font-weight: bold;}
+
+ul.pp-application-tabs a span {
+	display: block;
+	position: absolute;
+	bottom: -6px;
+	left: -1000em;
+	width: 11px;
+	height: 6px;
+	background: url(/graphics/structure/tab-current.gif) no-repeat 0 100%;
+	cursor: pointer;
+	}
+
+ul.pp-application-tabs a:hover span,
+ul.pp-application-tabs a:focus span,
+ul.pp-application-tabs a.pp-current span {left: 43%;}
+
+/* ------------------------------------------------------------------ */
+/* =Funnel content boxes - Usually found on the top level pages */
+/* ------------------------------------------------------------------ */
+
+div.pp-funnel-box,
+div.pp-intro-copy {margin-bottom: 20px;}
+
+div.pp-funnels div.pp-funnel-box,
+div.pp-funnels div.pp-intro-copy {
+	float: left;
+	margin-right: 20px;
+	}
+
+div.pp-funnels div.pp-funnel-box div.pp-wrap,
+div.pp-funnels div.pp-intro-copy {height: 16em;}
+
+div.pp-intro-copy {
+	padding: 0 0 0 15px;
+	width: 455px;
+	}
+
+div.pp-funnel-box {
+	padding: 6px 0 0 0;
+	width: 225px;
+	background: #efefef url(/graphics/funnel-boxes/funnel-box-bg-top.gif) no-repeat;
+	}
+
+div.pp-funnel-box-double {width: 470px;}
+
+div.pp-funnel-box div.pp-wrap {
+	padding: 5px 15px;
+	background: url(/graphics/funnel-boxes/funnel-box-bg-bottom.gif) no-repeat 0 100%;
+	}
+
+div.pp-funnel-box-double {background-image: url(/graphics/funnel-boxes/funnel-box-bg-top-double.gif);}
+div.pp-funnel-box-double div.pp-wrap {background-image: url(/graphics/funnel-boxes/funnel-box-bg-bottom-double.gif);}
+
+img.pp-decoration-1 {
+	float: right;
+	margin: 5px 0 10px 10px;
+	}
+
+div.pp-funnel-box h3 {font-size: 1.167em;}
+
+div.pp-funnel-box p,
+div.pp-funnel-box ul,
+div.pp-funnel-box address {
+	margin-bottom: 1em;
+	line-height: 1.2;
+	}
+
+/* Glossary funnel box - can also be put in a homepage portlet */
+
+#pp-glossary label {display: block;}
+#pp-glossary input.pp-text {width: 280px;}
+div.pp-funnels #pp-glossary input.pp-text {width: 188px;}
+#pp-glossary input.pp-button {margin-top: 5px;}
+
+/* Useful Tools funnel box */
+
+#pp-useful-tools div.pp-wrap {padding: 5px 2px;}
+#pp-useful-tools div.pp-portlet-content div.pp-wrap {padding: 0;}
+
+#pp-useful-tools div.pp-wrap h3 {padding: 0 12px;}
+
+#pp-useful-tools ul.pp-useful-tools {
+	margin: 0;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: #fff #fff #ddd;
+	list-style: none;
+	}
+
+div.pp-portlet-content ul.pp-useful-tools {border-top: 0;}
+
+ul.pp-useful-tools li {
+	margin: 0;
+	background: #f9f9f9 url(/graphics/funnel-boxes/useful-tools/tab-bg.gif) repeat-x 0 100%;
+	}
+
+ul.pp-useful-tools a {
+	display: block;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: #eaeaea #fff #fff;
+	padding: 10px 10px 10px 45px;
+	background-repeat: no-repeat;
+	background-position: 10px 50%;
+	}
+
+ul.pp-useful-tools a:hover,
+ul.pp-useful-tools a:focus {background-color: #fff;}
+
+ul.pp-useful-tools a.pp-fee-calculator {background-image: url(/graphics/icons/useful-tools/calculator.gif);}
+ul.pp-useful-tools a.pp-plan-creator {background-image: url(/graphics/icons/useful-tools/plan-creator.gif);}
+ul.pp-useful-tools a.pp-volume-calculator {background-image: url(/graphics/icons/useful-tools/house.gif);}
+
+/* ------------------------------------------------------------------ */
+/* =Portlets */
+/* ------------------------------------------------------------------ */
+
+/* Portlet head */
+
+div.pp-portlet-head {
+	overflow: hidden;
+	border-bottom: 1px solid #e4e4e4;
+	padding: 6px 10px;
+	background: #015986 url(/graphics/portlets/portlet-head-bg.gif) no-repeat;
+	}
+
+div.pp-portlet-double div.pp-portlet-head {background-image: url(/graphics/portlets/portlet-head-bg-double.gif);}
+
+div.pp-portlet-head h2 {
+	float: left;
+	margin: 0;
+	font-size: 1.25em;
+	color: #fff;
+	}
+
+div.pp-portlet-head ul,
+div.pp-newsblog-head ul {
+	overflow: hidden;
+	float: right;
+	margin: 0;
+	list-style: none;
+	cursor: default;
+	}
+
+div.pp-portlet-head li,
+div.pp-newsblog-head li {
+	float: left;
+	margin: 0 0 0 5px;
+	}
+
+div.pp-portlet-head ul a {
+	display: block;
+	width: 17px;
+	height: 17px;
+	background: url(/graphics/portlets/portlet-controls.gif) no-repeat;
+	text-indent: -1000em;
+	color: #fff;
+	outline: none;
+	line-height: 1.0;
+	}
+
+div.pp-portlet-head ul a.pp-remove {background-position: -17px 0;}
+
+div.pp-minimised div.pp-portlet-head ul a.pp-minimise {background-position: 0 -34px;}
+
+div.pp-portlet-head ul a.pp-remove:hover,
+div.pp-portlet-head ul a.pp-remove:focus {background-position: -17px -17px;}
+div.pp-portlet-head ul a.pp-minimise:hover,
+div.pp-portlet-head ul a.pp-minimise:focus {background-position: 0 -17px;}
+
+div.pp-minimised div.pp-portlet-head ul a.pp-minimise:hover,
+div.pp-minimised div.pp-portlet-head ul a.pp-minimise:focus {background-position: 0 -51px;}
+
+div.pp-newsblog-head ul a.pp-subscribe {
+	padding: 3px 23px 3px 0;
+	background: url(/graphics/portlets/rss-icon.gif) no-repeat 100% 50%;
+	font-size: 0.917em;
+	color: #fff;
+	}
+
+div.pp-newsblog-head ul a.pp-subscribe span {position: absolute; left: -1000em;}
+
+/* Portlet content */
+
+div.pp-portlet-content {
+	padding: 0 1px 10px 1px;
+	background: #efefef url(/graphics/portlets/portlet-content-bg.gif) no-repeat 0 100%;
+	}
+
+div.pp-portlet-double div.pp-portlet-content {background-image: url(/graphics/portlets/portlet-content-bg-double.gif);}
+
+div.pp-portlet-content div.pp-wrap:first-child {
+	padding: 15px 12px 0 12px;
+	background: url(/graphics/portlets/portlet-content-gradient.gif) repeat-x;
+	}
+
+div.pp-portlet-content div.pp-wrap {padding: 10px 12px 0 12px;}
+
+div.pp-portlet-content div.pp-portlet-logo {
+	margin: 1em 0 0 0;
+	padding: 10px 12px 0 12px;
+	background: url(/graphics/structure/divide-1.gif) repeat-x;
+	text-align: center;
+	}
+
+div.pp-portlet-content h3 {
+	font-size: 1.25em;
+	font-weight: bold;
+	color: #295064;
+	}
+
+div.pp-portlet-content h4,
+div.pp-portlet-content h5,
+div.pp-portlet-content h6 {
+	font-weight: bold;
+	color: #295064;
+	}
+
+div.pp-portlet-content h3 a,
+div.pp-portlet-content h4 a,
+div.pp-portlet-content h5 a,
+div.pp-portlet-content h6 a {font-weight: bold;}
+
+div.pp-portlet-content p,
+div.pp-portlet-content ul,
+div.pp-portlet-content ol,
+div.pp-portlet-content address,
+div.pp-portlet-content dl {margin-bottom: 1em;}
+
+div.pp-portlet-content dt {font-weight: bold;}
+
+div.pp-portlet-content form {margin-bottom: 10px;}
+
+div.pp-portlet-content ul.pp-links {
+	margin-left: 0;
+	list-style: none;
+	}
+
+div.pp-portlet-content ul.pp-links li {margin: 0 0 7px 0;}
+
+div.pp-help-text {
+	margin: 0 0 1em 0;
+	border: 1px dotted #c3c3c3;
+	padding: 8px 5px 5px 8px;
+	background: #fffed5;
+	font-size: 0.917em;
+	color: #333;
+	}
+
+div.pp-help-text p {
+	margin: 0 0 0.5em 0;
+	line-height: 1.2;
+	}
+
+div.pp-help-text input.pp-close {
+	display: block;
+	float: right;
+	margin: -3px 0 5px 5px;
+	border: 0;
+	width: 17px;
+	height: 16px;
+	background: url(/graphics/portlets/help-close.gif) no-repeat;
+	text-indent: -1000em;
+	line-height: 1.0;
+	outline: none;
+	cursor: pointer;
+	}
+
+div.pp-help-text input.pp-close:hover,
+div.pp-help-text input.pp-close:focus {background-position: 0 100%;}
+
+/* Portlet Sub Heading */
+
+div.pp-portlet-head-sub {
+	border-top: 1px solid #c7c7c7;
+	border-bottom: 1px solid #f7f7f7;
+	padding: 4px 8px 4px 12px;
+	background: #ddd;
+	}
+
+div.pp-portlet-head-sub h3 {
+	float: left;
+	margin: 0;
+	width: 65%; /* To prevent moving the portlet controls when there is a long string */
+	font-size: 1.083em;
+	color: #333;
+	}
+
+div.pp-portlet-head-sub h3 span {
+	font-size: 0.833em;
+	color: #676767;
+	white-space: nowrap;
+	}
+
+div.pp-portlet-head-sub ul {
+	float: right;
+	margin: 0;
+	list-style: none;
+	font-size: 0.917em;
+	cursor: default;
+	}
+
+div.pp-portlet-head-sub li {
+	float: left;
+	margin: 0 0 0 3px;
+	}
+
+div.pp-portlet-head-sub ul a.pp-remove,
+div.pp-portlet-head-sub ul a.pp-minimise,
+div.pp-portlet-head-sub ul input.pp-remove,
+div.pp-portlet-head-sub ul input.pp-minimise {
+	display: block;
+	border: 0;
+	width: 17px;
+	height: 17px;
+	background: url(/graphics/portlets/portlet-controls-sub.gif) no-repeat;
+	text-indent: -1000em;
+	line-height: 1.0;
+	outline: none;
+	cursor: pointer;
+	}
+
+div.pp-portlet-head-sub ul a.pp-remove,
+div.pp-portlet-head-sub ul input.pp-remove {background-position: -17px 0;}
+
+div.pp-minimised ul a.pp-minimise,
+div.pp-minimised ul input.pp-minimise {background-position: 0 -34px;}
+
+div.pp-portlet-head-sub ul a.pp-remove:hover,
+div.pp-portlet-head-sub ul a.pp-remove:focus,
+div.pp-portlet-head-sub ul input.pp-remove:hover,
+div.pp-portlet-head-sub ul input.pp-remove:focus {background-position: -17px -17px;}
+div.pp-portlet-head-sub ul a.pp-minimise:hover,
+div.pp-portlet-head-sub ul a.pp-minimise:focus,
+div.pp-portlet-head-sub ul input.pp-minimise:hover,
+div.pp-portlet-head-sub ul input.pp-minimise:focus {background-position: 0 -17px;}
+
+div.pp-minimised ul a.pp-minimise:hover,
+div.pp-minimised ul a.pp-minimise:focus,
+div.pp-minimised ul input.pp-minimise:hover,
+div.pp-minimised ul input.pp-minimise:focus {background-position: 0 -51px;}
+
+/* Alternating rows - These must be positioned here, above the List styled 1 & 2 styles below */
+
+div.pp-portlet-content ul.pp-alternating-rows li:nth-child(odd) {border-top-color: #f5f5f5; border-bottom-color: #f5f5f5;}
+div.pp-portlet-content ul.pp-alternating-rows li:nth-child(even) {border-bottom-color: #fdfdfd;	background: #fdfdfd;}
+/* These have to be separated because IE chokes on brackets in selector declarations */
+div.pp-portlet-content ul.pp-alternating-rows li.pp-odd {border-top-color: #f5f5f5; border-bottom-color: #f5f5f5;}
+div.pp-portlet-content ul.pp-alternating-rows li.pp-even {border-bottom-color: #fdfdfd;	background: #fdfdfd;}
+
+/* Scrolling list */
+
+div.pp-portlet-content ul.pp-scroll {
+	overflow-y: scroll;
+	max-height: 300px;
+	}
+
+/* List style 1 */
+
+div.pp-portlet-content ul.pp-styled-1 {
+	margin: 0;
+	border-top: 1px solid #ddd;
+	text-align: right;
+	list-style: none;
+	}
+
+div.pp-portlet-content ul.pp-styled-1 li {
+	margin: 0;
+	border-top: 1px solid #fdfdfd;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 6px 12px;
+	background: #f5f5f5;
+	}
+
+div.pp-portlet-content ul.pp-styled-1 li:hover {background: #e1edf3;}
+
+div.pp-portlet-content ul.pp-styled-1 a.pp-main {
+	float: left;
+	margin-right: 5px;
+	}
+
+div.pp-portlet-content ul.pp-styled-1 em {
+	font-size: 0.917em;
+	font-style: normal;
+	}
+
+div.pp-portlet-content ul.pp-styled-1 span {
+	font-size: 0.917em;
+	font-style: normal;
+	}
+
+div.pp-portlet-content ul.pp-styled-1 input.pp-button-link {font-size: 0.917em;}
+
+/* List style 2 */
+
+div.pp-portlet-content ul.pp-styled-2 {
+	margin: 0;
+	border-top: 1px solid #ddd;
+	list-style: none;
+	}
+
+div.pp-portlet-content ul.pp-styled-2 li {
+	margin: 0;
+	border-top: 1px solid #fdfdfd;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 6px 12px;
+	background: #f5f5f5;
+	}
+
+div.pp-portlet-content ul.pp-styled-2 li.pp-highlight {background: #fdffdc;}
+
+div.pp-portlet-content ul.pp-styled-2 span {font-size: 0.917em;}
+
+/* General search style */
+
+form.pp-general-search label {
+	display: block;
+	margin: 0 0 8px 0;
+	}
+
+form.pp-general-search input.pp-text {
+	margin: 0 2px 0 0;
+	width: 200px;
+	}
+
+form.pp-general-search select {
+	margin: 0 0 5px 0;
+	width: 100%;
+	}
+
+/* Filter search */
+
+fieldset.pp-filter-search label {
+	display: block;
+	margin: 0 0 8px 0;
+	}
+
+/* Add link form style */
+
+fieldset.pp-add-links {
+	margin-top: 1em;
+	border: solid #cdcdcd;
+	border-width: 1px 0;
+	padding: 10px;
+	background: #dedede;
+	}
+
+fieldset.pp-add-links label {
+	display: block;
+	margin-bottom: 3px;
+	color: #333;
+	}
+
+fieldset.pp-add-links label.pp-hide-2 {display: none;} /* Safari requires this */
+
+fieldset.pp-add-links span.pp-label {font-weight: normal;}
+
+fieldset.pp-add-links input.pp-text {width: 180px;}
+fieldset.pp-add-links select {width: 185px;}
+fieldset.pp-add-links input.pp-button {margin-top: 5px;}
+
+/* Common projects & Search applications - portlet */
+
+#pp-search-applications table {margin-bottom: 10px;}
+
+#pp-common-projects caption,
+#pp-search-applications caption {display: none;}
+
+#pp-common-projects tbody th,
+#pp-common-projects tbody td,
+#pp-search-applications tbody th,
+#pp-search-applications tbody td {font-size: 0.917em;}
+
+/* Current policy - portlet */
+
+#pp-current-policy div.pp-portlet-content ul.pp-styled-2 {margin-bottom: 10px;}
+
+/* My Portal - portlet */
+
+#pp-my-portal form {
+	margin: 1.5em 0 0 0;
+	padding: 1em 0 0 0;
+	background: url(/graphics/structure/divide-1.gif) repeat-x;
+	}
+
+/* Useful links - portlet */
+
+#pp-useful-links div.pp-portlet-content ul.pp-styled-2 {font-size: 0.917em;}
+
+#pp-useful-links .pp-delete {
+	float: right;
+	margin: 0 0 0 5px;
+	}
+
+#pp-useful-links h4 {margin-bottom: 0.5em;}
+
+/* Useful tools - portlet */
+
+#pp-useful-tools div.pp-portlet-content div.pp-wrap {padding: 0;}
+div.pp-portlet-content ul.pp-useful-tools {border-top: 0;}
+
+/* Site location- portlet */
+
+ul.pp-button-selection {
+	margin: 0;
+	list-style: none;
+	text-align: left;
+	}
+
+ul.pp-button-selection li {
+	position: relative;
+	margin: 0 0 5px 0;
+	border: 1px solid #ddd;
+	padding: 5px;
+	background: #f7f7f7;
+	}
+
+ul.pp-button-selection li:hover {border-color: #95bcd7; background: #e1edf3;}
+ul.pp-button-selection li:hover img {border-color: #6ba5cd;}
+
+ul.pp-button-selection img {
+	display: block;
+	border: 1px solid #eee;
+	padding: 3px;
+	background: #fff;
+	}
+
+ul.pp-button-selection a.pp-button {
+	position: absolute;
+	right: 5px;
+	top: 32%;
+	}
+
+/* Fee calculator- portlet */
+
+#pp-fee-calculator form {margin: 0;}
+
+#pp-fee-calculator div.pp-form-block {
+	margin: 0;
+	border-bottom: 1px solid #eee;
+	border-top: 1px solid #ccc;
+	padding: 8px 10px;
+	background: #dedede;
+	}
+
+#pp-fee-calculator div.pp-form-block span.pp-field {margin-top: 5px;}
+
+#pp-fee-calculator p.pp-buttons	{
+	margin: 0;
+	border: solid #e6e6e6;
+	border-width: 1px 0;
+	padding: 10px;
+	background: #f7f7f7;
+	text-align: center;
+	}
+
+#pp-fee-calculator div.pp-fee-units label {
+	display: block;
+	margin-bottom: 3px;
+	color: #333;
+	}
+
+#pp-fee-calculator div.pp-fee-units label.pp-hide-2 {display: none;} /* Safari requires this */
+
+#pp-fee-calculator div.pp-fee-units input.pp-text {width: 90px;}
+#pp-fee-calculator select {width: 100%;}
+#pp-fee-calculator div.pp-fee-units select {width: 180px;}
+#pp-fee-calculator div.pp-fee-units input.pp-button {margin-top: 5px;}
+
+#pp-fee-calculator p.pp-result {
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+	}
+
+#pp-fee-calculator p.pp-result strong {
+	display: block;
+	margin: 5px auto 0 auto;
+	border: 1px solid #e7e4cd;
+	padding: 5px;
+	width: 50%;
+	background: #fffff1 url(/graphics/general/fee-calculator-bg.gif) repeat-x;
+	font-size: 1.667em;
+	letter-spacing: -0.05em;
+	}
+
+/* Add link form style */
+
+form.pp-add-feed {
+	margin-top: 1em;
+	border: solid #cdcdcd;
+	border-width: 1px 0;
+	padding: 10px;
+	background: #dedede;
+	}
+
+form.pp-add-feed label {
+	display: block;
+	margin-bottom: 3px;
+	color: #333;
+	}
+
+form.pp-add-feed input.pp-text {width: 190px;}
+
+/* ------------------------------------------------------------------ */
+/* =Alternate content boxes - eg: See also right column box */
+/* ------------------------------------------------------------------ */
+
+div.pp-alt-box {
+	margin: 0 0 20px 0;
+	width: 225px;
+	}
+
+div.pp-alt-box.pp-three {
+	margin: 0 0 15px 0;
+	width: 715px;
+	}
+
+div.pp-alt-box div.pp-alt-box-head {
+	margin: 0;
+	border-bottom: 1px solid #bfd8ec;
+	padding: 8px 15px;
+	background: #d9e8f7 url(/graphics/alt-boxes/alt-box-bg-top.gif) no-repeat;
+	}
+
+div.pp-alt-box.pp-two div.pp-alt-box-head {
+	border-bottom-color: #d5d5d5;
+	background-color: #e5e5e5;
+	background-image: url(/graphics/alt-boxes/alt-box-bg-top-2.gif);
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-head {
+	border-bottom-color: #e3dfd1;
+	background-color: #efebdc;
+	background-image: url(/graphics/alt-boxes/alt-box-bg-top-3.gif);
+	}
+
+div.pp-alt-box div.pp-alt-box-head h3 {margin: 0;}
+
+div.pp-alt-box div.pp-alt-box-head h3 span {
+	display: block;
+	margin: 0 0 0.2em 0;
+	font-size: 0.75em;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-head h3 {
+	font-weight: bold;
+	font-size: 1.25em;
+	color: #433d3a;
+	}
+
+div.pp-alt-box div.pp-alt-box-head h3 a {font-size: 1.083em;}
+
+div.pp-alt-box div.pp-alt-box-content {
+	margin: 0;
+	border-top: 1px solid #fff;
+	border-bottom: 2px solid #e7eef6;
+	padding: 10px 15px;
+	background: #f3f7fc;
+	}
+
+div.pp-alt-box.pp-two div.pp-alt-box-content {
+	border-bottom-color: #eee;
+	background-color: #f6f6f6;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content {
+	border-bottom-color: #f3f2ed;
+	background-color: #faf8f0;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content h4 {color: #554d49;}
+
+div.pp-alt-box-content ul {
+	margin: 0;
+	list-style: none;
+	}
+
+div.pp-alt-box-content li {margin: 0 0 9px 0;}
+
+div.pp-alt-box-content li.pp-external-link {
+	padding: 0 0 0 18px;
+	background: url(/graphics/icons/external-link.gif) no-repeat 0 50%;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content ul {overflow: hidden;}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content li {
+	float: left;
+	margin: 0 15px 0 0;
+	border-right: 1px solid #e1dfd8;
+	padding: 0 15px 0 0;
+	width: 29%;
+	min-height: 75px;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content li.pp-last {
+	margin-left: 0;
+	border-right: 0;
+	padding-right: 0;
+	}
+
+div.pp-alt-box.pp-three div.pp-alt-box-content li li {
+	display: block;
+	float: none;
+	margin: 0 0 4px 0;
+	border: 0;
+	padding: 0;
+	width: auto;
+	min-height: 0;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Home funnels */
+/* ------------------------------------------------------------------ */
+
+#pp-home-features {
+	position: relative;
+	z-index: 1; /* To overlay the dropzones when they appear */
+	background: #efefef;
+	}
+
+#pp-home-features h2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 20;
+	width: 635px;
+	height: 7px;
+	background: url(/graphics/home-features/corners-top.png) no-repeat;
+	text-indent: -1000em;
+	}
+
+#pp-home-features div.pp-home-features-content {
+	overflow: hidden;
+	border-bottom: 1px solid #fff;
+	min-height: 250px;
+	background: #f0f0f0;
+	}
+
+img.pp-home-features-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	}
+
+#pp-home-features div.pp-text-overlay {
+	position: relative;
+	z-index: 10;
+	padding: 15px;
+	width: 288px;
+	min-height: 220px;
+	background: url(/graphics/structure/text-overlay-bg.png);
+	color: #fff;
+	}
+
+#pp-home-features div.pp-text-overlay h3 {
+	font-size: 1.417em;
+	color: #fff;
+	}
+
+#pp-home-features div.pp-text-overlay p {margin: 0 0 1em 0;}
+
+/* About us */
+
+#pp-home-features #pp-about-us {position: relative;}
+
+/* News and Blogs */
+
+#pp-home-features #pp-news-and-blog {
+	padding: 0 12px;
+	background: #f0f0f0 url(/graphics/portlets/portlet-newsblog-bg.jpg) repeat-x 0 100%;
+	}
+
+div.pp-newsblog {
+	float: left;
+	margin-top: 12px;
+	width: 300px;
+	}
+
+div.pp-blog-col {float: right;}
+
+div.pp-newsblog div.pp-newsblog-head {
+	overflow: hidden;
+	border-bottom: 1px solid #092f56;
+	padding: 6px 10px;
+	background: #01274e url(/graphics/portlets/portlet-head-dark-bg.gif) no-repeat;
+	}
+
+div.pp-newsblog div.pp-newsblog-head h3 {
+	float: left;
+	margin: 0;
+	font-size: 1.333em;
+	}
+
+div.pp-newsblog div.pp-newsblog-head h3 a {color: #fff;}
+
+div.pp-newsblog div.pp-newsblog-content {
+	background-image: none;
+	background-color: transparent;
+	}
+
+div.pp-newsblog div.pp-newsblog-content h4 {
+	margin: 1em 0 0.5em 0;
+	font-weight: bold;
+	font-size: 1em;
+	}
+
+div.pp-newsblog div.pp-newsblog-content dl.pp-newsblog-index {margin: 0.75em 0 0.5em;}
+
+div.pp-newsblog div.pp-newsblog-content dl.pp-newsblog-index dt {
+	padding: 0 0 0.4em 18px;
+	min-height: 18px;
+	background: url(/graphics/icons/internal-link.gif) no-repeat;
+	}
+
+div.pp-newsblog a.pp-more {font-weight: bold;}
+
+/* Greener homes */
+
+#pp-home-features #pp-greener-homes {}
+
+/* Interactive house */
+
+#pp-home-features #pp-interactive-house {}
+
+/* Home features nav tabs */
+
+ul#pp-nav-home-features {
+	margin: 0;
+	list-style: none;
+	font-size: 1.167em;
+	}
+
+ul#pp-nav-home-features li {
+	float: left;
+	position: relative;
+	margin: 0;
+	border-right: 1px solid #fff;
+	width: 158px;
+	text-align: center;
+	}
+
+ul#pp-nav-home-features li.pp-four {border: 0;}
+
+ul#pp-nav-home-features a {
+	display: block;
+	padding: 15px 5px;
+	background-repeat: repeat-x;
+	color: #fff;
+	text-decoration: none;
+	}
+
+ul#pp-nav-home-features li.pp-one a {background-color: #7c567c; background-image: url(/graphics/home-features/tab-bg-aubergine.gif);}
+ul#pp-nav-home-features li.pp-two a {background-color: #2f567c; background-image: url(/graphics/home-features/tab-bg-blue.gif);}
+ul#pp-nav-home-features li.pp-three a {background-color: #a22f7c; background-image: url(/graphics/home-features/tab-bg-pink.gif);}
+ul#pp-nav-home-features li.pp-four a {background-color: #584a80; background-image: url(/graphics/home-features/tab-bg-purple.gif);}
+
+ul#pp-nav-home-features a.pp-current,
+ul#pp-nav-home-features a:hover,
+ul#pp-nav-home-features a:focus {background-position: 0 100%;}
+
+ul#pp-nav-home-features li.pp-one a.pp-current,
+ul#pp-nav-home-features li.pp-one a:hover,
+ul#pp-nav-home-features li.pp-one a:focus {background-image: url(/graphics/home-features/tab-bg-aubergine-on.gif);}
+ul#pp-nav-home-features li.pp-two a.pp-current,
+ul#pp-nav-home-features li.pp-two a:hover,
+ul#pp-nav-home-features li.pp-two a:focus {background-image: url(/graphics/home-features/tab-bg-blue-on.gif);}
+ul#pp-nav-home-features li.pp-three a.pp-current,
+ul#pp-nav-home-features li.pp-three a:hover,
+ul#pp-nav-home-features li.pp-three a:focus {background-image: url(/graphics/home-features/tab-bg-pink-on.gif);}
+ul#pp-nav-home-features li.pp-four a.pp-current,
+ul#pp-nav-home-features li.pp-four a:hover,
+ul#pp-nav-home-features li.pp-four a:focus {background-image: url(/graphics/home-features/tab-bg-purple-on.gif);}
+
+ul#pp-nav-home-features a.pp-current {font-weight: bold;}
+
+/* Tab arrows */
+
+ul#pp-nav-home-features li a span {
+	display: block;
+	position: absolute;
+	top: -8px;
+	left: -1000em;
+	z-index: 20;
+	width: 15px;
+	height: 8px;
+	background-repeat: no-repeat;
+	}
+
+ul#pp-nav-home-features li a.pp-current span,
+ul#pp-nav-home-features li a:hover span,
+ul#pp-nav-home-features li a:focus span {left: 46%;}
+
+ul#pp-nav-home-features li.pp-one a span {background-image: url(/graphics/home-features/arrow-aubergine.gif);}
+ul#pp-nav-home-features li.pp-two a span {background-image: url(/graphics/home-features/arrow-blue.gif);}
+ul#pp-nav-home-features li.pp-three a span {background-image: url(/graphics/home-features/arrow-pink.gif);}
+ul#pp-nav-home-features li.pp-four a span {background-image: url(/graphics/home-features/arrow-purple.gif);}
+
+/* ------------------------------------------------------------------ */
+/* =Search results */
+/* ------------------------------------------------------------------ */
+
+div.pp-search-results-inline,
+div.pp-search-results-overview,
+div.pp-search-results-pagination {
+	margin: 0 0 15px 0;
+	border: 1px solid #bfd8ec;
+	padding: 10px;
+	background: #f3f7fc;
+	}
+
+/* Search results inline form */
+
+div.pp-search-results-inline p {
+	float: right;
+	margin: 0;
+	}
+
+p.pp-rss {
+	padding: 0 0 0 22px;
+	background: url(/graphics/icons/rss-small.gif) no-repeat 0 50%;
+	}
+
+.pp-pdf {
+	padding: 0 0 0 22px;
+	background: url(/graphics/icons/pdf-small.gif) no-repeat 0 50%;
+	font-weight: normal;
+	font-size: 0.917em;
+	}
+
+div.pp-search-results-inline form {margin: 0;}
+div.pp-search-results-inline form input.pp-text {width: 250px;}
+
+/* Search results overview */
+
+div.pp-search-results-overview h3 {
+	margin: 0 0 0.3em 0;
+	font-size: 1.25em;
+	}
+
+div.pp-search-results-overview p {
+	margin: 0;
+	color: #003366;
+	}
+
+/* Search results listing */
+
+div.pp-search-results div.pp-internal-results {
+	float: left;
+	width: 715px;
+	}
+
+div.pp-search-results div.pp-external-results {
+	float: right;
+	width: 225px
+	}
+
+div.pp-search-results dl.pp-search-results-listing dt {
+	margin: 0 0 0.3em 0;
+	font-size: 1.167em;
+	}
+
+div.pp-search-results dl.pp-search-results-listing dt a {text-decoration: none;}
+div.pp-search-results dl.pp-search-results-listing dt a span {text-decoration: underline;}
+div.pp-search-results dl.pp-search-results-listing dt a:hover span,
+div.pp-search-results dl.pp-search-results-listing dt a:focus span {text-decoration: none;}
+div.pp-search-results dl.pp-search-results-listing dt a em {font-style: normal; color: #333;}
+
+div.pp-search-results dl.pp-search-results-listing dd {
+	margin: 0 0 1em 0;
+	border-bottom: 1px solid #eeeff0;
+	padding: 0 0 1em 0;
+	}
+
+div.pp-search-results div.pp-external-results div.pp-alt-box div.pp-alt-box-head h4 {margin-bottom: 0;}
+div.pp-search-results div.pp-external-results div.pp-alt-box div.pp-alt-box-content {padding: 10px 0;}
+
+div.pp-search-results div.pp-external-results h5 {
+	padding: 8px 10px;
+	background: #e5e5e5;
+	}
+
+div.pp-search-results div.pp-external-results h5,
+div.pp-search-results div.pp-external-results dt {
+	overflow: hidden; /* For FF2&3 that doesn't support break-word */
+	word-wrap: break-word;
+	}
+
+div.pp-search-results div.pp-external-results h5 a {font-weight: bold;}
+div.pp-search-results div.pp-external-results dl {margin-bottom: 1.5em; padding: 0 15px;}
+div.pp-search-results div.pp-external-results dt {margin: 0.5em 0 0 0;}
+div.pp-search-results div.pp-external-results dd {font-size: 0.917em;}
+
+/* ------------------------------------------------------------------ */
+/* =Media content */
+/* ------------------------------------------------------------------ */
+
+div.pp-video-box {
+	overflow: hidden;
+	margin: 0 0 1.5em 0;
+	border: 1px solid #bfd8ec;
+	padding: 15px;
+	background: #f3f7fc;
+	}
+
+div.pp-video-box div.pp-video-column {
+	float: left;
+	margin: 0 15px 0 0;
+	}
+
+div.pp-video-box div.pp-content-column {overflow: hidden;}
+
+div.pp-video-box p {margin-bottom: 1em;}
+
+/* ------------------------------------------------------------------ */
+/* =Pagination */
+/* ------------------------------------------------------------------ */
+
+/* Pagination */
+
+div.pp-search-results-pagination {overflow: hidden;}
+
+div.pp-search-results-pagination ul {
+	float: right;
+	margin: 0;
+	color: #999;
+	}
+
+div.pp-search-results-pagination li {
+	display: inline;
+	margin: 0 0 0 10px;
+	}
+
+div.pp-search-results-pagination li strong {color: #333;}
+
+/* ------------------------------------------------------------------ */
+/* =Featured news */
+/* ------------------------------------------------------------------ */
+
+div.pp-featured-news {
+	margin: 0 0 15px 0;
+	border: 1px solid #ebe7da;
+	padding: 10px;
+	background: #faf8f0;
+	}
+
+div.pp-featured-news h3 {
+	margin-bottom: 0.5em;
+	font-size: 1.833em;
+	}
+
+div.pp-featured-news h3 span {
+	font-size: 0.667em;
+	color: #4b5c64;
+	}
+
+div.pp-featured-news p {margin-bottom: 0;}
+
+/* ------------------------------------------------------------------ */
+/* =Search features */
+/* ------------------------------------------------------------------ */
+
+div.pp-predictive-search-wrap {
+	position: relative;
+	z-index: 100;
+	}
+
+div.pp-predictive-search {
+	position: absolute;
+	left: 0;
+	right: -5px;
+	padding: 0 5px 5px 0;
+	background: url(/graphics/structure/predictive-search-shadow.png) no-repeat 100% 100%;
+	}
+
+form#pp-search div.pp-predictive-search {
+	left: -2px;
+	right: 0;
+	width: 208px;
+	}
+
+div.pp-predictive-search-content {
+	position: relative;
+	border: 2px solid #186d99;
+	padding: 0 0 8px 0;
+	min-height: 70px;
+	background: #fff;
+	}
+
+div.pp-predictive-search-content dl {
+	margin: 0;
+	border-bottom: 1px solid #cee2ec;
+	padding: 0 0 8px 0;
+	background: #eff6fa;
+	}
+
+div.pp-predictive-search-content dt {
+	margin: 8px 0 2px 0;
+	padding: 7px 10px 0 10px;
+	background: url(/graphics/structure/predictive-search-border.gif) repeat-x;
+	font-weight: bold;
+	}
+
+div.pp-predictive-search-content dt:first-child,
+div.pp-predictive-search-content dt.pp-first {
+	margin-top: 0;
+	background: none;
+	}
+
+div.pp-predictive-search-content dd {
+	margin: 0 0 1px 0;
+	padding: 0 10px;
+	font-size: 0.917em;
+	}
+
+div.pp-predictive-search-content p {
+	margin: 0;
+	padding: 8px 10px 0 10px;
+	font-size: 0.917em;
+	}
+
+div.pp-predictive-search-content div.pp-loading {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: url(/graphics/structure/predictive-search-loading-bg.png) repeat;
+	}
+
+* html div.pp-predictive-search-content div.pp-loading {background: #fff;}
+
+div.pp-predictive-search-content div.pp-loading p {
+	position: absolute;
+	top: 20%;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 35px 0 0 0;
+	background: url(/graphics/structure/predictive-search-loading.gif) no-repeat 50% 0;
+	text-align: center;
+	font-weight: bold;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Adverts */
+/* ------------------------------------------------------------------ */
+
+div.pp-advert {clear: both;}
+
+div.pp-advert div.pp-advert-head {
+	padding: 6px 10px;
+	background: #006599 url(/graphics/general/advert-head-bg.gif) no-repeat;
+	}
+
+div.pp-advert div.pp-advert-head h2 {
+	margin: 0;
+	font-size: 0.917em;
+	color: #fff;
+	}
+
+div.pp-advert div.pp-advert-content {
+	margin: 1px 0 1.5em 0;
+	border: 1px solid #eaeaea;
+	padding: 10px;
+	background: #f5f5f5;
+	font-size: 0.917em;
+	color: #fff;
+	}
+
+div.pp-advert div.pp-advert-content p {margin-bottom: 0.5em;}
+
+div.pp-advert div.pp-advert-content img {
+	display: block;
+	margin: 0 auto;
+	border: 1px solid #006599;
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Modal/Lightbox window */
+/* ------------------------------------------------------------------ */
+
+/*html#pp-modal-open {overflow: hidden;}  Used to hide the scrollbars when the modal box pops up. Needs to be added with JavaScript */
+
+#pp-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 10000;
+	width: 100%;
+	height: 100%;
+	background: url(/graphics/structure/modal-bg.png);
+	}
+
+#pp-modal div.pp-modal-window {
+	position: relative;
+	margin: 10% auto 0;
+	border: 10px solid rgba(0,0,0,0.2);
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-khtml-border-radius: 20px;
+	border-radius: 20px;
+	width: 500px;
+	}
+
+#pp-modal div.pp-modal-wrap {
+	overflow: auto;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	border-radius: 10px;
+	padding: 20px;
+	height: 300px;
+	background: #fff;
+	}
+
+#pp-modal div.pp-modal-wrap a#close-modal {
+	float: right;
+	width: 18px;
+	height: 18px;
+	background: url(/graphics/structure/close.gif) no-repeat;
+	text-indent: -1000em;
+	outline: none;
+	}
+
+#pp-modal div.pp-modal-wrap a#close-modal:hover,
+#pp-modal div.pp-modal-wrap a#close-modal:focus {background-position: 0 100%;}
+
+#pp-modal div.pp-modal-wrap h2 {font-size: 1.333em;}
+
+/* Login */
+
+#pp-modal div.login {width: 320px;}
+#pp-modal div.login div.pp-modal-wrap {height: 220px;}
+#pp-modal div.login div.pp-form-block span.pp-label {width: 70px;}
+#pp-modal div.login div.pp-form-buttons	{margin-bottom: 0; padding-left: 80px;}
+#pp-modal div.login div.pp-form-buttons ul.pp-unstyled {margin-bottom: 0;}
+
+/* 3rd Party Development container */
+
+#pp-portlet-dev-environment {
+	margin: 0 auto;
+	padding: 100px 0 0;
+	width: 500px;
+	}
+
+#pp-portlet-dev-environment div.pp-portlet {margin: 0 auto;}
+
+/* ------------------------------------------------------------------ */
+/* =Print format */
+/* ------------------------------------------------------------------ */
+
+@media print {
+
+/* Remove background (Not always needed) */
+	body {
+		background-image: none;
+		background-color: transparent;
+		color: #000;
+		}
+
+/* H1/Logo styling */
+	#pp-header h1 {margin-bottom: 20px;}
+
+/* Link styling */
+	a {
+		font-weight: bold;
+		text-decoration: none;
+		}
+
+/* Remove pixel widths for containing elements */
+	#pp-container,
+	#pp-header h1,
+	#pp-header h1 img,
+	#pp-sitemap ul,
+	#pp-footer div.pp-wrap {
+		clear: both;
+		float: none;
+		width: auto;
+		}
+
+	div.pp-funnels div.pp-funnel-box div.pp-wrap {min-height: 0;}
+
+/* Display the logo image */
+	#pp-header h1 img {display: block;}
+
+/* General remove of unwanted page elements */
+	#pp-footer,
+	#pp-sitemap,
+	#pp-hierarchy,
+	#pp-header #pp-skip,
+	#pp-header #pp-user-controls,
+	#pp-header #pp-nav-main,
+	#pp-nav-customise,
+	div.pp-search-results-inline,
+	div.pp-search-results-pagination,
+	#pp-about-us img,
+	#pp-content ul#pp-nav-home-features,
+	#pp-your-applications p.pp-float-right {display: none;}
+
+/* Specific removal of interactive, non-information portals */
+	#pp-find-lpa,
+	#pp-glossary,
+	#pp-in-your-area,
+	#pp-fee-calculator {display: none;}
+
+/* Specific layout remove of unwanted page elements and change of widths */
+	div.pp-portlet,
+	div.pp-column,
+	div.pp-funnels-grid,
+	div.pp-column-1,
+	div.pp-column-2,
+	div.pp-column-2-see-also,
+  div.pp-column-2-responsibilities,
+	div.pp-column-3,
+	div.pp-column-4 {
+		clear: both;
+		float: none;
+		width: 100%;
+		}
+
+	div.pp-column-2 {display: none;}
+
+	div.pp-intro-copy,
+	div.pp-funnel-box-double,
+	div.pp-funnels div.pp-funnel-box,
+	div.pp-intro-block div.pp-funnel-box,
+	div.pp-search-results div.pp-external-results,
+	div.pp-search-results div.pp-external-results div.pp-alt-box {
+		float: none;
+		clear: both;
+		width: auto;
+		background-image: none;
+		margin-bottom: 0;
+		}
+
+/* Remove table inputs */
+	table.pp-news-listing thead input,
+	table.pp-current-policy thead input,
+	table.pp-common-projects thead input,
+	table.pp-your-applications thead input {display: none;}
+
+/* General table styling */
+	html #pp-content table th,
+	html #pp-content table td {border-color: #ccc;}
+
+/* Remove table specific heights */
+	table.pp-news-listing tbody,
+	table.pp-current-policy tbody,
+	table.pp-common-projects tbody,
+	table.pp-your-applications tbody,
+	div.pp-portlet table.pp-news-listing tbody,
+	div.pp-portlet table.pp-current-policy tbody,
+	div.pp-portlet table.pp-common-projects tbody,
+	div.pp-portlet table.pp-your-applications tbody {
+		page-break-before: avoid;
+		page-break-inside: auto;
+		overflow-y: visible;
+		overflow-x: visible;
+		max-height: 5555%;
+		}
+
+	div.pp-portlet table.pp-current-policy tbody,
+	div.pp-portlet table.pp-your-applications tbody {max-height: 5555%;}
+
+	html div.pp-your-applications-wrap,
+	html div.pp-portlet div.pp-your-applications-wrap,
+	html div.pp-current-policy-wrap,
+	html div.pp-portlet div.pp-current-policy-wrap,
+	div.pp-portlet-content ul.pp-scroll {
+		overflow-y: visible;
+	  max-height: 5555%;
+		}
+
+	/* Format text of table captions*/
+	table.pp-news-listing caption span,
+	table.pp-current-policy caption span,
+	table.pp-common-projects caption span,
+	table.pp-your-applications caption span {display: none;}
+
+	/* General */
+	div.pp-funnels div.pp-funnel-box div.pp-wrap,
+	div.pp-funnels div.pp-intro-copy {height: auto;}
+
+	#pp-header {margin-bottom: 20px;}
+
+/*
+	Remove action elements:
+	(1) Buttons
+	(2) Downloading Links
+	(3) Active tabs
+	(4) Predictive Text Box
+	(5) Tools Box
+	(6,7) Action columns on tables
+*/
+
+	a.pp-button,
+	.pp-bio-link,
+	ul.pp-application-tabs a,
+	div.pp-predictive-search-wrap,
+	div.pp-intro-block div#pp-useful-tools,
+	table.pp-your-applications th.pp-col-action,
+	table.pp-your-applications td.pp-col-action {display: none;}
+
+	div.pp-bio-column {overflow: visible;}
+
+	a[href^="/"]:after {content: " (http://www.planningportal.com" attr(href) ") ";}
+
+	a[href]:after {
+		content: " (" attr(href) ") ";
+		font-size: 0.833em;
+		font-weight: normal;
+		color: #000;
+		}
+
+	h1 a[href]:after {content: none;}
+
+	#pp-modal {
+		position: static;
+		width: 50%;
+		height: auto;
+		}
+
+	#pp-modal div.pp-modal-window {
+		position: static;
+		margin: 0;
+		border: 0;
+		width: auto;
+		}
+
+	#pp-modal div.pp-modal-wrap {
+		overflow: auto;
+		height: auto;
+		}
+
+	#pp-modal div.pp-modal-wrap a#close-modal {display: none;}
+
+
+	}
+
+/* ------------------------------------------------------------------ */
+/* =Styles that need putting in order go under here... */
+/* ------------------------------------------------------------------ */

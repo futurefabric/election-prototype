@@ -1,0 +1,174 @@
+@import "utils/type_sizing";
+
+.document_page {
+  background: #fcfcfc;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 3px solid #ccc;
+  padding: 3em 10% 1em 10%;
+  margin-bottom: 2em;
+  overflow: auto;
+}
+
+.rejected_by {
+  font-weight: bold;
+}
+
+.document {
+  margin-bottom: 2em;
+  overflow:visible;
+
+  @media only screen and (min-width:1024px) {
+    margin-right: 2%;
+  }
+
+  .title {
+    @include type-32;
+  }
+
+  .summary {
+    @include type-18;
+    font-style: italic;
+    margin-bottom: 1.5em;
+    p{
+      background-image:none;
+    }
+  }
+
+  .body {
+    a[rel="external"]:after {
+      content: image-url("preview-external-link.png");
+      margin-right: 0.2em;
+      margin-left: -0.2em;
+    }
+    @import "../frontend/helpers/_govspeak.scss";
+    @import "../frontend/helpers/_attachment.scss";
+
+  }
+
+  pre.body {
+    @include type-13;
+  }
+
+  &.right-to-left {
+    .title,
+    .summary,
+    .body,
+    .govspeak {
+      direction: rtl;
+    }
+  }
+}
+
+
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+
+.row-fluid .world-locations-edit-span {
+  width: 47%;
+}
+
+p.prompt {
+  margin: $gutter-one-third 0 $gutter;
+}
+
+// Tidy up spacing at top of document editing pages
+div.span8 > section {
+  & > h1:first-child {
+    margin-bottom: $gutter-half;
+  }
+
+  form > div:first-child + fieldset {
+    margin-top: 0;
+  }
+}
+
+div.paper-number {
+  div.field_with_errors:first-child {
+    float: none
+  }
+
+  div.field_with_errors,
+  input.paper-number {
+    float: left;
+
+    & + label {
+      float: left;
+      margin-left: 2em;
+    }
+  }
+
+  input.paper-number {
+    width: 180px;
+  }
+}
+
+ol.uploaded-attachments {
+  margin: $gutter 0;
+  list-style: none;
+
+  span.file {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+}
+
+ol.existing-attachments {
+  margin: 0;
+  list-style: none;
+  .well {
+    @extend %contain-floats;
+    padding: $gutter-one-third;
+    img {
+      float: left;
+      margin-right: 10px;
+    }
+    span.title {
+      font-weight: bold;
+    }
+
+    span {
+      display: block;
+    }
+
+    p.virus-scanning {
+      color: $notice-color;
+      background: $notice-background;
+    }
+
+    p.virus {
+      color: $alert-color;
+      background: $alert-background;
+    }
+
+    label, input {
+      .js-enabled & {
+        display: none;
+      }
+    }
+
+    label {
+      display: inline;
+      font-weight: bold;
+    }
+
+    input.ordering {
+      width: 50px;
+    }
+  }
+
+  ul.actions {
+    margin: 0;
+  }
+}
+
+input[name="save_and_continue"] {
+  margin-left: 0.4em;
+}
+
+.virus-status {
+  width: 20%;
+}
