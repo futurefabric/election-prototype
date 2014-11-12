@@ -6,6 +6,18 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
+    // Archiving prototypes.
+    app.get('/archive', function (req, res) {
+      res.render('archive-1', {'assetPath' : assetPath});
+    });
+    app.get('/building-construction-and-property-services', function (req, res) {
+      res.render('archive-2', {'assetPath' : assetPath});
+    });
+    app.get('/archive/building-construction-and-property-services', function (req, res) {
+      res.render('archive-3', {'assetPath' : assetPath});
+    });
+
+    // Taxonomy prototypes.
     app.get('/example-1', function (req, res) {
       res.render('example-1', {'assetPath' : assetPath });
     });
