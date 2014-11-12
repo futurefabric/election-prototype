@@ -39,8 +39,70 @@
 <meta content="authenticity_token" name="csrf-param">
 <meta content="q/c1xMDNUCBI2hRPObyIVQ7XazKIP6a30bDHqE1kCGI=" name="csrf-token">
 <!--[if IE 6]><link href="https://assets.digital.cabinet-office.gov.uk/government/assets/frontend/base-ie6-7b33a6bdc268a16eb2e8307fdee65fbc.css" media="screen" rel="stylesheet" type="text/css" /><script>var ieVersion = 6;</script><![endif]--><!--[if IE 7]><link href="https://assets.digital.cabinet-office.gov.uk/government/assets/frontend/base-ie7-ec59fc1acea9fd51988fa99f50628601.css" media="screen" rel="stylesheet" type="text/css" /><script>var ieVersion = 7;</script><![endif]--><!--[if IE 8]><link href="https://assets.digital.cabinet-office.gov.uk/government/assets/frontend/base-ie8-e5b310c9aff5b5dcf929b588ca4d17a2.css" media="screen" rel="stylesheet" type="text/css" /><script>var ieVersion = 8;</script><![endif]--><!--[if IE 9]><link href="https://assets.digital.cabinet-office.gov.uk/government/assets/frontend/base-ie9-e7db765c18b10846a951f8382659de47.css" media="screen" rel="stylesheet" type="text/css" /><script>var ieVersion = 9;</script><![endif]-->
+
+
+<style>
+#archive-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(204,204,204);
+  background: rgba(204,204,204,.7);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4cffffff', endColorstr='#4cffffff'); /* IE */
+  z-index: 500;
+}
+#archive-alert {
+    cursor: pointer;
+    padding: 40px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 150px;
+    width: 60%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    background: white;
+    -moz-box-shadow: 1px 1px 3px 1px #ccc;
+    -webkit-box-shadow: 1px 1px 3px 1px #ccc;
+    box-shadow: 1px 1px 3px 1px #ccc;
+}
+#archive-alert h2 {
+    font-family: "nta","GDS-Regular",sans-serif;
+    font-size: 27px;
+    line-height: 1.1111111111;
+    font-weight: bold;
+    text-transform: none;
+    padding-top: 2px;
+    margin-bottom: 27px;
+}
+#archive-alert p {
+    font-family: "nta","GDS-Regular",sans-serif;
+    font-size: 19px;
+    line-height: 1.31579;
+    font-weight: 400;
+    text-transform: none;
+    padding-top: 7px;
+    padding-bottom: 3px;
+}
+</style>
+
 </head>
-<body class="website government">
+<body class="website government archived">
+
+<div id="archive-alert">
+<h2>This page was archived on 27 June 2014 because it became out of date</h2>
+
+<p>View <a href="https://www.gov.uk/browse/housing-local-services/planning-permission">up-to-date guidance</a> on planning permission and building regulations</p>
+</div>
+
+
     <script type="text/javascript">document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script><div id="skiplink-container">
       <div>
         <a href="#content" class="skiplink">Skip to main content</a>
@@ -649,5 +711,14 @@ GOVUK.init(GOVUK.trackMetadataLinks, {});
 
 //]]>
 </script>
+
+<div id="archive-background"></div>
+
+<script>
+$('#archive-background, #archive-alert').click(function() {
+  $('#archive-background, #archive-alert').fadeOut();
+});
+</script>
+
 </body>
 </html>
