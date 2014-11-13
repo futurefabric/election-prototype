@@ -19,6 +19,9 @@ module.exports = {
     app.get('/archive/building-construction-and-property-services-2', function (req, res) {
       res.render('archive-3', {'assetPath' : assetPath});
     });
+    app.get('/archive/building-construction-and-property-services-3', function (req, res) {
+      res.render('archive-5', {'assetPath' : assetPath});
+    });
 
     // Taxonomy prototypes.
     app.get('/example-1', function (req, res) {
