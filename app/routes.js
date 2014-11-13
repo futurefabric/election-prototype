@@ -14,7 +14,10 @@ module.exports = {
       res.render('archive-2', {'assetPath' : assetPath});
     });
     app.get('/archive/building-construction-and-property-services', function (req, res) {
-      res.render('archive-3', {'assetPath' : assetPath});
+      res.render('archive-4', {'assetPath' : assetPath});
+    });
+    app.get('/archive/building-construction-and-property-services-2', function (req, res) {
+      res.render('archive-4', {'assetPath' : assetPath});
     });
 
     // Taxonomy prototypes.
