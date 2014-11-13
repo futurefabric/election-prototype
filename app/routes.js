@@ -6,6 +6,14 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
+    // Logging prototypes.
+    app.get('/logging', function (req, res) {
+      res.render('logging-1', {'assetPath' : assetPath});
+    });
+    app.get('/logging-async', function (req, res) {
+      res.render('logging-2', {'assetPath' : assetPath});
+    });
+
     // Archiving prototypes.
     app.get('/archive', function (req, res) {
       res.render('archive-1', {'assetPath' : assetPath});
