@@ -2,16 +2,8 @@ module.exports = {
   bind : function (app, assetPath) {
 
     app.get('/', function (req, res) {
-      res.render('example-1',
+      res.render('example-0',
                 {'assetPath' : assetPath});
-    });
-
-    // Logging prototypes.
-    app.get('/logging', function (req, res) {
-      res.render('logging-1', {'assetPath' : assetPath});
-    });
-    app.get('/logging-async', function (req, res) {
-      res.render('logging-2', {'assetPath' : assetPath});
     });
 
     // Archiving prototypes.
@@ -32,6 +24,15 @@ module.exports = {
     });
 
     // Taxonomy prototypes.
+    app.get('/schools-colleges', function (req, res) {
+      res.render('example-0', {'assetPath' : assetPath });
+    });
+    app.get('/example-0', function (req, res) {
+      res.render('example-0', {'assetPath' : assetPath });
+    });
+    app.get('/schools-colleges/early-learning-childcare', function (req, res) {
+      res.render('example-1', {'assetPath' : assetPath });
+    });
     app.get('/example-1', function (req, res) {
       res.render('example-1', {'assetPath' : assetPath });
     });
@@ -47,5 +48,14 @@ module.exports = {
     app.get('/example-4', function (req, res) {
       res.render('example-4', {'assetPath' : assetPath });
     });
+
+    // Logging prototypes.
+    app.get('/logging', function (req, res) {
+      res.render('logging-1', {'assetPath' : assetPath});
+    });
+    app.get('/logging-async', function (req, res) {
+      res.render('logging-2', {'assetPath' : assetPath});
+    });
+
   }
 };
