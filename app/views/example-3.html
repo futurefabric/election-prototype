@@ -5,10 +5,26 @@
 {{$content}}
 
 <style>
-@media (min-width: 641px) {
-    form fieldset .single-row-select {
-        background-image: url(/public/images/dropdown-arrow-small-a4f4e2df48e8d34de458bddf58e83a8a.png);
-    }
+.filtered-index .filter-form-block form fieldset .single-row-select {
+  background-image: url("/public/images/dropdown-arrow-small.png");
+}
+li.document-row a {
+	text-decoration: none !important;
+}
+li.document-row a:hover {
+	text-decoration: underline !important;
+}
+.feeds .govdelivery {
+  background: url("/public/images/mail-icon.png") 0 40% no-repeat;
+}
+.feeds .feed {
+  background: url("/public/images/feed-icon.png") 0 40% no-repeat;
+}
+#page .previous-next-navigation li.previous a:before {
+  background: transparent url("/public/images/arrow-sprite.png") no-repeat -20px -11px;
+}
+#page .previous-next-navigation li.next a:before {
+  background: transparent url("/public/images/arrow-sprite-2B8CC4.png") no-repeat -102px -11px;
 }
 </style>
 
@@ -1718,7 +1734,7 @@
   </ol>
 <nav id="show-more-documents" role="navigation"><ul class="previous-next-navigation">
 <li class="next">
-            <a href="/government/publications?page=2">Next <span class="visuallyhidden">page</span> <span class="page-numbers">2 of 1604</span></a>
+            <a href="/government/publications?page=2">Next <span class="visuallyhidden">page</span> <span class="page-numbers">2 of 172</span></a>
           </li>
       </ul></nav>
 </div>
@@ -1728,7 +1744,7 @@
 
 <!-- report_a_problem -->
 <div class="report-a-problem-toggle-wrapper js-footer">
-<p class="report-a-problem-toggle"><a href="">Is there anything wrong with this page?</a></p>
+<p class="report-a-problem-toggle"><a href="">&nbsp;</a></p>
 </div>
 <div class="report-a-problem-container">
 
