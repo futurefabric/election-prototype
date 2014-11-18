@@ -6,7 +6,7 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
-    // Archiving prototypes.
+    // Archiving prototypes (Building services)
     app.get('/archive', function (req, res) {
       res.render('archive-1', {'assetPath' : assetPath});
     });
@@ -21,6 +21,20 @@ module.exports = {
     });
     app.get('/archive/building-construction-and-property-services-3', function (req, res) {
       res.render('archive-5', {'assetPath' : assetPath});
+    });
+
+    // Archiving prototypes (G-Cloud)
+    app.get('/google', function (req, res) {
+      res.render('archive/google-search', {'assetPath' : assetPath});
+    });
+    app.get('/google-results', function (req, res) {
+      res.render('archive/google-results', {'assetPath' : assetPath});
+    });
+    app.get('/410', function (req, res) {
+      res.render('archive/cloudstore-410', {'assetPath' : assetPath});
+    });
+    app.get('/archive/how-to-use-cloudstore', function (req, res) {
+      res.render('archive/cloudstore', {'assetPath' : assetPath});
     });
 
     // Taxonomy prototypes.
