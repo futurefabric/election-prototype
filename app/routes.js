@@ -37,6 +37,17 @@ module.exports = {
       res.render('archive/cloudstore', {'assetPath' : assetPath});
     });
 
+    // Policy prototypes (topics view)
+    app.get('/policies', function (req, res) {
+      res.render('policies/topics.html', {'assetPath' : assetPath});
+    });
+    app.get('/policies/crime-and-policing', function (req, res) {
+      res.render('policies/crime-and-policing.html', {'assetPath' : assetPath});
+    });
+    app.get('/policies/crime-and-policing-latest', function (req, res) {
+      res.render('policies/crime-and-policing-latest.html', {'assetPath' : assetPath});
+    });
+
     // Taxonomy prototypes.
     app.get('/schools-colleges', function (req, res) {
       res.render('example-0', {'assetPath' : assetPath });
