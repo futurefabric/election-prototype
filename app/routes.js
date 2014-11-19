@@ -87,6 +87,9 @@ module.exports = {
     app.get('/logging-async-filament', function (req, res) {
       res.render('logging-4', {'assetPath' : assetPath});
     });
+    app.get('/logging-async-filament-with-reorder', function (req, res) {
+      res.render('logging-5', {'assetPath' : assetPath});
+    });
 
   }
 };
