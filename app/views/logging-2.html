@@ -7,26 +7,29 @@
 <script>
 (function(){
     function addFont() {
+        console.log('adding font to body');
         var style = document.createElement('style');
         style.rel = 'stylesheet';
         document.head.appendChild(style);
-        style.textContent = localStorage.sourceSansPro;
+        style.textContent = localStorage.font;
     }
 
     try {
-        if (localStorage.sourceSansPro) {
+        if (localStorage.font) {
+            console.log('Font is in localStorage');
             // The font is in localStorage, we can load it directly
             addFont();
         } else {
             // We have to first load the font file asynchronously
+            console.log('Font not stored, loading asynchronously');
             var request = new XMLHttpRequest();
-            request.open('GET', 'https://assets.digital.cabinet-office.gov.uk/static/fonts-83e596ae63d072e22b7f34d2b5482bde.css', true);
+            request.open('GET', '/public/stylesheets/fonts.css', true);
 
             request.onload = function() {
+                console.log('Font loaded with status', request.status);
                 if (request.status >= 200 && request.status < 400) {
                     // We save the file in localStorage
-                    localStorage.sourceSansPro = request.responseText;
-
+                    localStorage.font = request.responseText;
                     // ... and load the font
                     addFont();
                 }
@@ -138,7 +141,7 @@
 
 
 <main id="content" role="main" class="group"><header class="page-header group"><div>
-      <h1>UK bank holidays (async)</h1>
+      <h1>UK bank holidays (async with cache)</h1>
     </div>
   </header><div class="article-container group">
 
