@@ -48,7 +48,7 @@ module.exports = {
       res.render('policies/crime-and-policing-latest.html', {'assetPath' : assetPath});
     });
 
-    // Taxonomy prototypes.
+    // Taxonomy prototypes (Early years childcare)
     app.get('/schools-colleges', function (req, res) {
       res.render('example-0', {'assetPath' : assetPath });
     });
@@ -80,6 +80,12 @@ module.exports = {
     });
     app.get('/logging-async', function (req, res) {
       res.render('logging-2', {'assetPath' : assetPath});
+    });
+    app.get('/logging-reordered', function (req, res) {
+      res.render('logging-3', {'assetPath' : assetPath});
+    });
+    app.get('/logging-async-filament', function (req, res) {
+      res.render('logging-4', {'assetPath' : assetPath});
     });
 
   }
