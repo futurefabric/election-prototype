@@ -6,10 +6,27 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
-    // Archiving search
+    // Archiving search - TODO
     // How GOV.UK search might work for archived topics
     app.get('/search/archive', function (req, res) {
       res.render('archive-search', {'assetPath' : assetPath});
+    });
+
+    // Archiving search
+    // How GOV.UK search might work for archived topics
+    app.get('/policy/prototype', function (req, res) {
+      res.render('policy-prototype', {'assetPath' : assetPath});
+    });
+
+    // Archiving prototypes (Outer space licence)
+    app.get('/apply-for-a-license-under-the-outer-space-act-1986', function (req, res) {
+      res.render('apply-for-a-license-under-the-outer-space-act-1986', {'assetPath' : assetPath});
+    });
+    app.get('/info/apply-for-a-license-under-the-outer-space-act-1986', function (req, res) {
+      res.render('apply-for-a-license-under-the-outer-space-act-1986-info', {'assetPath' : assetPath});
+    });
+    app.get('/apply-for-a-license-under-the-outer-space-act-1986/v1', function (req, res) {
+      res.render('apply-for-a-license-under-the-outer-space-act-1986-version', {'assetPath' : assetPath});
     });
 
     // Archiving prototypes (Governors' handbook)
