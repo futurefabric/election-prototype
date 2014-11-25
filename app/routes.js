@@ -12,10 +12,14 @@ module.exports = {
       res.render('archive-search', {'assetPath' : assetPath});
     });
 
-    // Archiving search
-    // How GOV.UK search might work for archived topics
+    // Policy prototype
     app.get('/policy/prototype', function (req, res) {
       res.render('policy-prototype', {'assetPath' : assetPath});
+    });
+
+    // Publications with better search
+    app.get('/publications-with-better-search', function (req, res) {
+      res.render('publications-with-better-search', {'assetPath' : assetPath});
     });
 
     // Archiving prototypes (Outer space licence)
@@ -79,6 +83,12 @@ module.exports = {
     app.get('/policies-renamed', function (req, res) {
       res.render('policies-renamed', {'assetPath' : assetPath});
     });
+    app.get('/policies-renamed-by-topic', function (req, res) {
+      res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
+    });
+    app.get('/policies-renamed-with-checkboxes', function (req, res) {
+      res.render('policies-renamed-with-checkboxes', {'assetPath' : assetPath});
+    });
 
     // Policy prototypes (Crime and policing)
     // List of policy areas, filter for "crime", then go through to
@@ -122,11 +132,6 @@ module.exports = {
     });
     app.get('/example-4', function (req, res) {
       res.render('example-4', {'assetPath' : assetPath });
-    });
-
-    // New "scheme page"
-    app.get('/scheme', function (req, res) {
-      res.render('scheme', {'assetPath' : assetPath });
     });
 
     // Logging prototypes.
