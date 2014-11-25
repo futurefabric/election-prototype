@@ -86,6 +86,9 @@ module.exports = {
     app.get('/policies-renamed-by-topic', function (req, res) {
       res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
     });
+    app.get('/policies-renamed-list', function (req, res) {
+      res.render('policies-renamed-list', {'assetPath' : assetPath});
+    });
     app.get('/policies-renamed-with-checkboxes', function (req, res) {
       res.render('policies-renamed-with-checkboxes', {'assetPath' : assetPath});
     });
