@@ -16,6 +16,9 @@ module.exports = {
     app.get('/schemes', function (req, res) {
       res.render('schemes', {'assetPath' : assetPath});
     });
+    app.get('/policies/rural-and-countryside', function (req, res) {
+      res.render('schemes-2', {'assetPath' : assetPath});
+    });
 
     // Policy prototype
     app.get('/policy/prototype', function (req, res) {
