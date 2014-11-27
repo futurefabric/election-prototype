@@ -12,10 +12,24 @@ module.exports = {
       res.render('archive-search', {'assetPath' : assetPath});
     });
 
+    // Schemes prototype - incomplete....
+    app.get('/schemes', function (req, res) {
+      res.render('schemes', {'assetPath' : assetPath});
+    });
+
     // Policy prototype
     app.get('/policy/prototype', function (req, res) {
-      res.render('policy-prototype', {'assetPath' : assetPath});
+      res.render('policy-prototype-2', {'assetPath' : assetPath});
     });
+    app.get('/policy/prototype/latest', function (req, res) {
+      res.render('policy-prototype-latest', {'assetPath' : assetPath});
+    });
+
+    // Policy prototype - Universal Credit, for BBC testing
+    app.get('/policy/universal-credit', function (req, res) {
+      res.render('universal-credit', {'assetPath' : assetPath});
+    });
+
 
     // Publications with better search
     app.get('/publications-with-better-search', function (req, res) {
@@ -42,6 +56,9 @@ module.exports = {
     });
     app.get('/governors-handbook/v1', function (req, res) {
       res.render('governors-handbook-version', {'assetPath' : assetPath});
+    });
+    app.get('/governors-handbook', function (req, res) {
+      res.render('governors-handbook', {'assetPath' : assetPath});
     });
 
     // Archiving prototypes (Building services)
