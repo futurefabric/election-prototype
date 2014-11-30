@@ -6,6 +6,25 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
+
+    // Final Friday Prototypes with Stephen
+    // Our revised view of policy
+  app.get('/government/policies', function (req, res) {
+      res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
+    });
+    app.get('/government/policies/benefits-reform', function (req, res) {
+      res.render('friday/benefits-reform', {'assetPath' : assetPath});
+    });
+    app.get('/government/policies/universal-credit', function (req, res) {
+      res.render('friday/universal-credit', {'assetPath' : assetPath});
+    });
+    app.get('/government/policies/universal-credit/background', function (req, res) {
+      res.render('friday/universal-credit-background-chrono', {'assetPath' : assetPath});
+    });
+    app.get('/government/policies/universal-credit/background/alternative', function (req, res) {
+      res.render('friday/universal-credit-background', {'assetPath' : assetPath});
+    });
+
     // Archiving search - TODO
     // How GOV.UK search might work for archived topics
     app.get('/search/archive', function (req, res) {
