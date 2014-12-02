@@ -6,15 +6,11 @@ module.exports = {
                 {'assetPath' : assetPath});
     });
 
+    // ****************
+    // POLICIES
+    // ****************
 
-    // Final Friday Prototypes with Stephen
-    // Our revised view of policy
-  app.get('/government/policies', function (req, res) {
-      res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
-    });
-    app.get('/government/policies/benefits-reform', function (req, res) {
-      res.render('friday/benefits-reform', {'assetPath' : assetPath});
-    });
+    // Scheme prototype - Universal Credit
     app.get('/government/policies/universal-credit', function (req, res) {
       res.render('friday/universal-credit', {'assetPath' : assetPath});
     });
@@ -24,22 +20,37 @@ module.exports = {
     app.get('/government/policies/universal-credit/background/alternative', function (req, res) {
       res.render('friday/universal-credit-background', {'assetPath' : assetPath});
     });
-
-    // Archiving search - TODO
-    // How GOV.UK search might work for archived topics
-    app.get('/search/archive', function (req, res) {
-      res.render('archive-search', {'assetPath' : assetPath});
+    app.get('/government/policies/universal-credit/background/alternative-2', function (req, res) {
+      res.render('friday/universal-credit-background-alternative', {'assetPath' : assetPath});
     });
 
-    // Schemes prototype - incomplete....
-    app.get('/schemes', function (req, res) {
-      res.render('schemes', {'assetPath' : assetPath});
+    // Scheme prototype (old) - Universal Credit, for BBC testing
+    app.get('/policy/universal-credit', function (req, res) {
+      res.render('universal-credit', {'assetPath' : assetPath});
     });
+
+    // Policy area - Benefits Reform
+    app.get('/government/policies/benefits-reform', function (req, res) {
+      res.render('friday/benefits-reform', {'assetPath' : assetPath});
+    });
+
+    // Top-level policies with new friendlier names, various browsing methods
+    app.get('/policies-renamed', function (req, res) {
+      res.render('policies-renamed', {'assetPath' : assetPath});
+    });
+    app.get('/policies-renamed-by-topic', function (req, res) {
+      res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
+    });
+    app.get('/policies-renamed-list', function (req, res) {
+      res.render('policies-renamed-list', {'assetPath' : assetPath});
+    });
+
+    // Anna's list of policies prototype, at higher level
     app.get('/policies/rural-and-countryside', function (req, res) {
       res.render('schemes-2', {'assetPath' : assetPath});
     });
 
-    // Policy prototype
+    // Anna's scheme prototype using the Work Programme
     app.get('/policy/prototype', function (req, res) {
       res.render('policy-prototype-2', {'assetPath' : assetPath});
     });
@@ -47,18 +58,56 @@ module.exports = {
       res.render('policy-prototype-latest', {'assetPath' : assetPath});
     });
 
-    // Policy prototype - Universal Credit, for BBC testing
-    app.get('/policy/universal-credit', function (req, res) {
-      res.render('universal-credit', {'assetPath' : assetPath});
+    // List of policy areas, filter for "crime", then go through to
+    // the "window" of latest stuff
+    app.get('/policies', function (req, res) {
+      res.render('policies/topics.html', {'assetPath' : assetPath});
+    });
+    app.get('/policies/crime-and-policing', function (req, res) {
+      res.render('policies/crime-and-policing.html', {'assetPath' : assetPath});
+    });
+    app.get('/policies/crime-and-policing-latest', function (req, res) {
+      res.render('policies/crime-and-policing-latest.html', {'assetPath' : assetPath});
     });
 
+    // Policy prototypes (Early years childcare)
+    // List of topics, then go through to early years childcare page with
+    // a "window" at the bottom
+    // If you click on any of the "see more" links you get to
+    // example 3, which is a filtered publication list by policy topic
+    app.get('/schools-colleges', function (req, res) {
+      res.render('example-0', {'assetPath' : assetPath });
+    });
+    app.get('/schools-colleges/early-learning-childcare', function (req, res) {
+      res.render('example-1', {'assetPath' : assetPath });
+    });
+    / * Alternative URLs, retained to avoid breaking existing links */
+    app.get('/example-0', function (req, res) {
+      res.render('example-0', {'assetPath' : assetPath });
+    });
+    app.get('/example-1', function (req, res) {
+      res.render('example-1', {'assetPath' : assetPath });
+    });
+    app.get('/example-1a', function (req, res) {
+      res.render('example-1a', {'assetPath' : assetPath });
+    });
+    app.get('/example-3', function (req, res) {
+      res.render('example-3', {'assetPath' : assetPath });
+    });
 
-    // Publications with better search
+    // INCOMPLETE
     app.get('/publications-with-better-search', function (req, res) {
       res.render('publications-with-better-search', {'assetPath' : assetPath});
     });
+    app.get('/schemes', function (req, res) {
+      res.render('schemes', {'assetPath' : assetPath});
+    });
 
-    // Archiving prototypes (Outer space licence)
+    // ****************
+    // ARCHIVING
+    // ****************
+
+    // Change history prototypes (Outer space licence)
     app.get('/apply-for-a-license-under-the-outer-space-act-1986', function (req, res) {
       res.render('apply-for-a-license-under-the-outer-space-act-1986', {'assetPath' : assetPath});
     });
@@ -79,28 +128,25 @@ module.exports = {
     app.get('/governors-handbook/v1', function (req, res) {
       res.render('governors-handbook-version', {'assetPath' : assetPath});
     });
-    app.get('/governors-handbook', function (req, res) {
-      res.render('governors-handbook', {'assetPath' : assetPath});
-    });
 
     // Archiving prototypes (Building services)
     // Click on linked page, goes through to 410 page, you can then
     // see the inverted page.
     app.get('/archive', function (req, res) {
       res.render('archive-1', {'assetPath' : assetPath});
-    });
+    }); /* External page */
     app.get('/building-construction-and-property-services', function (req, res) {
       res.render('archive-2', {'assetPath' : assetPath});
-    });
+    }); /* 410 page */
     app.get('/archive/building-construction-and-property-services', function (req, res) {
       res.render('archive-4', {'assetPath' : assetPath});
-    });
+    }); /* Inverted CSS */
     app.get('/archive/building-construction-and-property-services-2', function (req, res) {
       res.render('archive-3', {'assetPath' : assetPath});
-    });
+    }); /* Interstitial */
     app.get('/archive/building-construction-and-property-services-3', function (req, res) {
       res.render('archive-5', {'assetPath' : assetPath});
-    });
+    }); /* Tumbleweed */
 
     // Archiving and 410 prototypes (G-Cloud)
     // Google search, Google results with archived link,
@@ -118,63 +164,11 @@ module.exports = {
       res.render('archive/cloudstore', {'assetPath' : assetPath});
     });
 
-    // Policy areas with new list of names
-    app.get('/policies-renamed', function (req, res) {
-      res.render('policies-renamed', {'assetPath' : assetPath});
-    });
-    app.get('/policies-renamed-by-topic', function (req, res) {
-      res.render('policies-renamed-by-topic', {'assetPath' : assetPath});
-    });
-    app.get('/policies-renamed-list', function (req, res) {
-      res.render('policies-renamed-list', {'assetPath' : assetPath});
-    });
-    app.get('/policies-renamed-with-checkboxes', function (req, res) {
-      res.render('policies-renamed-with-checkboxes', {'assetPath' : assetPath});
-    });
 
-    // Policy prototypes (Crime and policing)
-    // List of policy areas, filter for "crime", then go through to
-    // the "window" of latest stuff
-    app.get('/policies', function (req, res) {
-      res.render('policies/topics.html', {'assetPath' : assetPath});
-    });
-    app.get('/policies/crime-and-policing', function (req, res) {
-      res.render('policies/crime-and-policing.html', {'assetPath' : assetPath});
-    });
-    app.get('/policies/crime-and-policing-latest', function (req, res) {
-      res.render('policies/crime-and-policing-latest.html', {'assetPath' : assetPath});
-    });
-
-    // Policy prototypes (Early years childcare)
-    // List of topics, then go through to early years childcare page with
-    // a "window" at the bottom
-    // If you click on any of the "see more" links you get to
-    // example 3, which is a filtered publication list by policy topic
-    // Then example 4 is just the window, without any of the other content
-    app.get('/schools-colleges', function (req, res) {
-      res.render('example-0', {'assetPath' : assetPath });
-    });
-    app.get('/example-0', function (req, res) {
-      res.render('example-0', {'assetPath' : assetPath });
-    });
-    app.get('/schools-colleges/early-learning-childcare', function (req, res) {
-      res.render('example-1', {'assetPath' : assetPath });
-    });
-    app.get('/example-1', function (req, res) {
-      res.render('example-1', {'assetPath' : assetPath });
-    });
-    app.get('/example-1a', function (req, res) {
-      res.render('example-1a', {'assetPath' : assetPath });
-    });
-    app.get('/example-2', function (req, res) {
-      res.render('example-2', {'assetPath' : assetPath });
-    });
-    app.get('/example-3', function (req, res) {
-      res.render('example-3', {'assetPath' : assetPath });
-    });
-    app.get('/example-4', function (req, res) {
-      res.render('example-4', {'assetPath' : assetPath });
-    });
+    // ****************
+    // FRONT-END PERFORMANCE
+    // Looking at ways to speed up page rendering.
+    // ****************
 
     // Logging prototypes.
     app.get('/logging', function (req, res) {
