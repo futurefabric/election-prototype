@@ -14,7 +14,7 @@ module.exports = {
     app.get('/government/policies/universal-credit', function (req, res) {
       res.render('friday/universal-credit', {'assetPath' : assetPath});
     });
-    app.get('/government/policies/universal-credit/background', function (req, res) {
+    app.get('/government/policies/universal-credit/milestones', function (req, res) {
       res.render('friday/universal-credit-background-chrono', {'assetPath' : assetPath});
     });
     app.get('/government/policies/universal-credit/background/alternative', function (req, res) {
