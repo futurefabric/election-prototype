@@ -7,6 +7,13 @@ module.exports = {
     });
 
     // ****************
+    // WHITEHALL
+    // ****************
+    app.get('/whitehall/create-a-programme', function (req, res) {
+      res.render('whitehall/create-a-programme', {'assetPath' : assetPath});
+    });
+
+    // ****************
     // POLICIES
     // ****************
 
@@ -14,7 +21,7 @@ module.exports = {
     app.get('/government/policies/universal-credit', function (req, res) {
       res.render('friday/universal-credit', {'assetPath' : assetPath});
     });
-    app.get('/government/policies/universal-credit/milestones', function (req, res) {
+    app.get('/government/policies/universal-credit/timeline', function (req, res) {
       res.render('friday/universal-credit-background-chrono', {'assetPath' : assetPath});
     });
     app.get('/government/policies/universal-credit/background/alternative', function (req, res) {
